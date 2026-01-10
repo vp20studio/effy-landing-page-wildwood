@@ -3,17 +3,15 @@
 import SmoothScroll from '@/components/SmoothScroll';
 import Navigation from '@/components/Navigation';
 import StickyConversionBar from '@/components/StickyConversionBar';
-import HeroSection from '@/components/HeroSection';
-import ProductTitleRating from '@/components/ProductTitleRating';
-import WhatsIncluded from '@/components/WhatsIncluded';
+import ProductHero from '@/components/ProductHero';
 import TrustBanner from '@/components/TrustBanner';
-import ScrollytellingSection from '@/components/ScrollytellingSection';
+import WhatsIncluded from '@/components/WhatsIncluded';
+import SocialProof from '@/components/SocialProof';
+import ProductFeatures from '@/components/ProductFeatures';
+import HowItWorks from '@/components/HowItWorks';
 import MaterialsDeepDive from '@/components/MaterialsDeepDive';
 import ExplodedView from '@/components/ExplodedView';
-import HowItWorks from '@/components/HowItWorks';
-import KeypadShowcase from '@/components/KeypadShowcase';
 import SpecsAccordion from '@/components/SpecsAccordion';
-import ComparisonSection from '@/components/ComparisonSection';
 import AwardsCertifications from '@/components/AwardsCertifications';
 import CustomerReviews from '@/components/CustomerReviews';
 import PressLogos from '@/components/PressLogos';
@@ -32,68 +30,60 @@ export default function Home() {
       <StickyConversionBar />
 
       <main className="min-h-screen">
-        {/* 3. Hero: Immersive full-screen with tagline */}
-        <HeroSection />
+        {/* 3. Product Hero: Gallery + Pricing + CTAs (Conversion Focus) */}
+        <ProductHero />
 
-        {/* 4. Product Title & Rating: Social proof + pricing anchor */}
-        <ProductTitleRating />
-
-        {/* 5. What's Included: Bundle value visualization */}
-        <WhatsIncluded />
-
-        {/* 6. Trust Banner: Shipping/trial/warranty prominence */}
+        {/* 4. Trust Banner: Shipping/Trial/Warranty (Early Trust Signals) */}
         <TrustBanner />
 
-        {/* 7. Scrollytelling: Technical deep-dive with fixed image */}
+        {/* 5. What's Included: Bundle Value Visualization */}
+        <WhatsIncluded />
+
+        {/* 6. Social Proof: Featured Testimonial Highlight */}
+        <SocialProof />
+
+        {/* 7. Product Features: Interactive Animated Showcase */}
         <section id="features">
-          <ScrollytellingSection />
+          <ProductFeatures />
         </section>
 
-        {/* 8. Materials Deep-Dive: Wood grain showcase */}
+        {/* 8. How It Works: 3-Step Simplicity */}
+        <HowItWorks />
+
+        {/* 9. Materials Deep-Dive: Quality Showcase */}
         <MaterialsDeepDive />
 
-        {/* 9. Exploded View: Anatomy of Perfection */}
+        {/* 10. Exploded View: Anatomy of Perfection */}
         <section id="specs">
           <ExplodedView />
         </section>
 
-        {/* 10. How It Works: 3-step setup flow */}
-        <HowItWorks />
-
-        {/* 11. Keypad Showcase: Smart Memory Controller */}
-        <KeypadShowcase />
-
-        {/* 12. Specifications Accordion: Expandable tech specs */}
+        {/* 11. Specifications Accordion: Technical Details */}
         <SpecsAccordion />
 
-        {/* 13. Comparison: Standard Desk vs Wildwood */}
-        <section id="compare">
-          <ComparisonSection />
-        </section>
-
-        {/* 14. Awards & Certifications: Credibility badges */}
+        {/* 12. Awards & Certifications: Credibility Badges */}
         <AwardsCertifications />
 
-        {/* 15. Customer Reviews: Testimonial carousel */}
+        {/* 13. Customer Reviews: Enhanced with Histogram */}
         <section id="reviews">
           <CustomerReviews />
         </section>
 
-        {/* 16. Press & Media: Logo strip */}
+        {/* 14. Press & Media: Logo Strip */}
         <PressLogos />
 
-        {/* 17. Assembly Information: Installation confidence */}
+        {/* 15. Assembly Information: Confidence Building */}
         <AssemblyInfo />
 
-        {/* 18. FAQ Accordion: Common questions */}
+        {/* 16. FAQ Accordion: Objection Handling */}
         <section id="faq">
           <FAQAccordion />
         </section>
 
-        {/* 19. Final CTA: Pricing recap + urgency */}
+        {/* 17. Final CTA: Conversion Push */}
         <FinalCTA />
 
-        {/* 20. Footer */}
+        {/* 18. Footer */}
         <Footer />
       </main>
     </SmoothScroll>
