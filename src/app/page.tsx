@@ -1,65 +1,101 @@
-import Image from "next/image";
+'use client';
+
+import SmoothScroll from '@/components/SmoothScroll';
+import Navigation from '@/components/Navigation';
+import StickyConversionBar from '@/components/StickyConversionBar';
+import HeroSection from '@/components/HeroSection';
+import ProductTitleRating from '@/components/ProductTitleRating';
+import WhatsIncluded from '@/components/WhatsIncluded';
+import TrustBanner from '@/components/TrustBanner';
+import ScrollytellingSection from '@/components/ScrollytellingSection';
+import MaterialsDeepDive from '@/components/MaterialsDeepDive';
+import ExplodedView from '@/components/ExplodedView';
+import HowItWorks from '@/components/HowItWorks';
+import KeypadShowcase from '@/components/KeypadShowcase';
+import SpecsAccordion from '@/components/SpecsAccordion';
+import ComparisonSection from '@/components/ComparisonSection';
+import AwardsCertifications from '@/components/AwardsCertifications';
+import CustomerReviews from '@/components/CustomerReviews';
+import PressLogos from '@/components/PressLogos';
+import AssemblyInfo from '@/components/AssemblyInfo';
+import FAQAccordion from '@/components/FAQAccordion';
+import FinalCTA from '@/components/FinalCTA';
+import Footer from '@/components/Footer';
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+    <SmoothScroll>
+      {/* 1. Fixed Navigation Header */}
+      <Navigation />
+
+      {/* 2. Sticky Conversion Bar (appears after scrolling past hero) */}
+      <StickyConversionBar />
+
+      <main className="min-h-screen">
+        {/* 3. Hero: Immersive full-screen with tagline */}
+        <HeroSection />
+
+        {/* 4. Product Title & Rating: Social proof + pricing anchor */}
+        <ProductTitleRating />
+
+        {/* 5. What's Included: Bundle value visualization */}
+        <WhatsIncluded />
+
+        {/* 6. Trust Banner: Shipping/trial/warranty prominence */}
+        <TrustBanner />
+
+        {/* 7. Scrollytelling: Technical deep-dive with fixed image */}
+        <section id="features">
+          <ScrollytellingSection />
+        </section>
+
+        {/* 8. Materials Deep-Dive: Wood grain showcase */}
+        <MaterialsDeepDive />
+
+        {/* 9. Exploded View: Anatomy of Perfection */}
+        <section id="specs">
+          <ExplodedView />
+        </section>
+
+        {/* 10. How It Works: 3-step setup flow */}
+        <HowItWorks />
+
+        {/* 11. Keypad Showcase: Smart Memory Controller */}
+        <KeypadShowcase />
+
+        {/* 12. Specifications Accordion: Expandable tech specs */}
+        <SpecsAccordion />
+
+        {/* 13. Comparison: Standard Desk vs Wildwood */}
+        <section id="compare">
+          <ComparisonSection />
+        </section>
+
+        {/* 14. Awards & Certifications: Credibility badges */}
+        <AwardsCertifications />
+
+        {/* 15. Customer Reviews: Testimonial carousel */}
+        <section id="reviews">
+          <CustomerReviews />
+        </section>
+
+        {/* 16. Press & Media: Logo strip */}
+        <PressLogos />
+
+        {/* 17. Assembly Information: Installation confidence */}
+        <AssemblyInfo />
+
+        {/* 18. FAQ Accordion: Common questions */}
+        <section id="faq">
+          <FAQAccordion />
+        </section>
+
+        {/* 19. Final CTA: Pricing recap + urgency */}
+        <FinalCTA />
+
+        {/* 20. Footer */}
+        <Footer />
       </main>
-    </div>
+    </SmoothScroll>
   );
 }
