@@ -4,6 +4,7 @@ import SmoothScroll from '@/components/SmoothScroll';
 import Navigation from '@/components/Navigation';
 import StickyConversionBar from '@/components/StickyConversionBar';
 import HeroSection from '@/components/HeroSection';
+import ProductGallery from '@/components/ProductGallery';
 import ProductTitleRating from '@/components/ProductTitleRating';
 import WhatsIncluded from '@/components/WhatsIncluded';
 import TrustBanner from '@/components/TrustBanner';
@@ -35,7 +36,10 @@ export default function Home() {
         {/* 3. Hero: Immersive full-screen with tagline */}
         <HeroSection />
 
-        {/* 4. Product Title & Rating: Social proof + pricing anchor */}
+        {/* 4. Product Gallery: Multi-image carousel with lightbox */}
+        <ProductGallery />
+
+        {/* 5. Product Title & Rating: Social proof + pricing anchor */}
         <ProductTitleRating />
 
         {/* 5. What's Included: Bundle value visualization */}
