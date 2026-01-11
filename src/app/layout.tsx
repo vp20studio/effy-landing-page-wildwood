@@ -1,10 +1,23 @@
 import type { Metadata } from 'next';
+import { Playfair_Display, Inter } from 'next/font/google';
 import './globals.css';
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  variable: '--font-playfair',
+  display: 'swap',
+});
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: 'Wildwood Standing Desk | EffyDesk',
   description:
-    'Experience the Wildwood Solid Wood Electric Standing Desk. Handcrafted from sustainably sourced wood with dual motors, whisper-quiet operation, and 10-year warranty. Canada\'s #1 standing desk.',
+    'Experience the Wildwood Solid Wood Electric Standing Desk. Handcrafted from sustainably sourced wood with dual motors, whisper-quiet operation, and 10-year warranty.',
   keywords: [
     'standing desk',
     'electric desk',
@@ -12,7 +25,6 @@ export const metadata: Metadata = {
     'ergonomic desk',
     'EffyDesk',
     'Wildwood',
-    'Canadian furniture',
   ],
   authors: [{ name: 'EffyDesk' }],
   openGraph: {
@@ -23,16 +35,6 @@ export const metadata: Metadata = {
     locale: 'en_CA',
     siteName: 'EffyDesk',
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Wildwood Standing Desk | EffyDesk',
-    description:
-      'Experience the Wildwood Solid Wood Electric Standing Desk. Canada\'s #1 standing desk.',
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
 };
 
 export default function RootLayout({
@@ -41,8 +43,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className="antialiased">{children}</body>
+    <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
+      <body className="font-sans antialiased">{children}</body>
     </html>
   );
 }

@@ -1,87 +1,60 @@
 'use client';
 
-import SmoothScroll from '@/components/SmoothScroll';
 import Navigation from '@/components/Navigation';
-import StickyConversionBar from '@/components/StickyConversionBar';
-import HeroSection from '@/components/HeroSection';
-import ProductGallery from '@/components/ProductGallery';
-import ProductTitleRating from '@/components/ProductTitleRating';
-import WhatsIncluded from '@/components/WhatsIncluded';
-import TrustBanner from '@/components/TrustBanner';
-import ScrollytellingSection from '@/components/ScrollytellingSection';
+import Hero from '@/components/Hero';
+import SocialProofStats from '@/components/SocialProofStats';
+import ValueProps from '@/components/ValueProps';
+import PricingComparison from '@/components/PricingComparison';
 import HowItWorks from '@/components/HowItWorks';
-import KeypadShowcase from '@/components/KeypadShowcase';
-import ComparisonSection from '@/components/ComparisonSection';
-import CustomerReviews from '@/components/CustomerReviews';
-import FAQAccordion from '@/components/FAQAccordion';
+import Reviews from '@/components/Reviews';
+import FAQ from '@/components/FAQ';
 import FinalCTA from '@/components/FinalCTA';
 import Footer from '@/components/Footer';
-
-// Optimized for cold Meta ad traffic - removed low-conversion sections:
-// - ExplodedView (AI images)
-// - MaterialsDeepDive (too detailed)
-// - SpecsAccordion (moved to FAQ)
-// - AwardsCertifications (not compelling for cold traffic)
-// - PressLogos (placeholder text)
-// - AssemblyInfo (not conversion-focused)
+import StickyBar from '@/components/StickyBar';
 
 export default function Home() {
   return (
-    <SmoothScroll>
-      {/* Fixed Navigation Header */}
+    <>
+      {/* Navigation */}
       <Navigation />
 
-      {/* Sticky Conversion Bar (appears after scrolling past hero) */}
-      <StickyConversionBar />
+      {/* Mobile Sticky Conversion Bar */}
+      <StickyBar />
 
       <main className="min-h-screen">
-        {/* Hero: First impression - must convert in 3-7 seconds */}
-        <HeroSection />
+        {/* Hero: Full-screen with gradient effects */}
+        <Hero />
 
-        {/* Product Gallery: Show the real product */}
-        <ProductGallery />
+        {/* Social Proof Stats: Horizontal strip */}
+        <SocialProofStats />
 
-        {/* Product Title & Rating: Social proof + pricing anchor */}
-        <ProductTitleRating />
-
-        {/* What's Included: Bundle value visualization */}
-        <WhatsIncluded />
-
-        {/* Trust Banner: Shipping/trial/warranty */}
-        <TrustBanner />
-
-        {/* Features: Simplified tech highlights */}
+        {/* Value Props: 4 benefit cards */}
         <section id="features">
-          <ScrollytellingSection />
+          <ValueProps />
         </section>
 
-        {/* How It Works: 3-step setup flow */}
+        {/* Pricing Comparison: Treantly-style side-by-side */}
+        <PricingComparison />
+
+        {/* How It Works: 3-step numbered process */}
         <HowItWorks />
 
-        {/* Keypad Showcase: Smart Memory Controller */}
-        <KeypadShowcase />
-
-        {/* Comparison: Standard Desk vs Wildwood */}
-        <section id="compare">
-          <ComparisonSection />
-        </section>
-
-        {/* Customer Reviews: Social proof */}
+        {/* Customer Reviews */}
         <section id="reviews">
-          <CustomerReviews />
+          <Reviews />
         </section>
 
-        {/* FAQ: Objection handling */}
+        {/* FAQ Accordion */}
         <section id="faq">
-          <FAQAccordion />
+          <FAQ />
         </section>
 
-        {/* Final CTA: Pricing recap + urgency */}
+        {/* Final CTA: Conversion section */}
         <FinalCTA />
 
         {/* Footer */}
         <Footer />
       </main>
-    </SmoothScroll>
+    </>
   );
 }

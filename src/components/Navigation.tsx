@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Search, User, ShoppingCart, ChevronDown } from 'lucide-react';
+import { Menu, X, ShoppingCart } from 'lucide-react';
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -12,88 +12,67 @@ export default function Navigation() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-    window.addEventListener('scroll', handleScroll);
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const navLinks = [
+    { label: 'Features', href: '#features' },
+    { label: 'Reviews', href: '#reviews' },
+    { label: 'FAQ', href: '#faq' },
+  ];
+
   return (
     <>
-      {/* Announcement Banner */}
-      <div className="bg-[#BA4B1A] text-white text-center py-2 px-4 text-sm">
-        <p>
-          New year, new workspace - Use code <span className="font-semibold">NEWYEAR25</span> for 20% off!
-        </p>
-      </div>
-
-      {/* Main Navigation */}
       <motion.header
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        transition={{ duration: 0.4 }}
-        className={`sticky top-0 z-50 transition-all duration-300 ${
+        transition={{ duration: 0.5 }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? 'bg-white shadow-sm'
-            : 'bg-[#FDF5EF]'
+            ? 'bg-white/95 backdrop-blur-md shadow-md'
+            : 'bg-transparent'
         }`}
       >
-        <nav className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
-          {/* Logo */}
-          <a href="/" className="flex-shrink-0">
-            <span className="text-2xl font-bold italic text-[#2C2F21]" style={{ fontFamily: 'Georgia, serif' }}>
-              effydesk
-            </span>
-          </a>
+        <div className="container">
+          <nav className="flex items-center justify-between h-16 md:h-20">
+            {/* Logo */}
+            <a href="/" className="flex items-center gap-2">
+              <span className={`text-xl md:text-2xl font-serif font-bold transition-colors ${
+                isScrolled ? 'text-[var(--forest)]' : 'text-[var(--forest)]'
+              }`}>
+                EFFYDESK
+              </span>
+            </a>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-8">
-            {/* Shop Dropdown */}
-            <div className="relative group">
-              <button className="flex items-center gap-1 text-sm font-medium text-[#2C2F21] hover:text-[#BA4B1A] transition-colors">
-                SHOP
-                <ChevronDown className="w-4 h-4" />
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center gap-8">
+              {navLinks.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className={`text-sm font-medium transition-colors hover:text-[var(--orange)] ${
+                    isScrolled ? 'text-[var(--forest)]' : 'text-[var(--forest)]'
+                  }`}
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+
+            {/* Desktop CTA */}
+            <div className="hidden md:flex items-center gap-4">
+              <button className="btn-primary text-sm px-6 py-2.5">
+                Shop Now
+                <ShoppingCart className="w-4 h-4" />
               </button>
             </div>
-
-            <a href="#" className="text-sm font-medium text-[#2C2F21] hover:text-[#BA4B1A] transition-colors">
-              WONDER BUNDLES
-            </a>
-
-            <a href="#" className="text-sm font-medium text-[#2C2F21] hover:text-[#BA4B1A] transition-colors">
-              INSPIRATION
-            </a>
-          </div>
-
-          {/* Right Side Icons */}
-          <div className="flex items-center gap-4">
-            {/* Currency Selector - Desktop */}
-            <div className="hidden md:flex items-center gap-1 text-sm text-[#2C2F21]">
-              <span className="text-lg">🇨🇦</span>
-              <span>CAD</span>
-              <ChevronDown className="w-3 h-3" />
-            </div>
-
-            {/* Search */}
-            <button className="p-2 text-[#2C2F21] hover:text-[#BA4B1A] transition-colors">
-              <Search className="w-5 h-5" />
-            </button>
-
-            {/* Account */}
-            <button className="hidden md:block p-2 text-[#2C2F21] hover:text-[#BA4B1A] transition-colors">
-              <User className="w-5 h-5" />
-            </button>
-
-            {/* Cart */}
-            <button className="p-2 text-[#2C2F21] hover:text-[#BA4B1A] transition-colors relative">
-              <ShoppingCart className="w-5 h-5" />
-              <span className="absolute -top-1 -right-1 w-4 h-4 bg-[#BA4B1A] text-white text-xs rounded-full flex items-center justify-center">
-                0
-              </span>
-            </button>
 
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 text-[#2C2F21]"
+              className="md:hidden p-2 text-[var(--forest)]"
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? (
@@ -102,11 +81,11 @@ export default function Navigation() {
                 <Menu className="w-6 h-6" />
               )}
             </button>
-          </div>
-        </nav>
+          </nav>
+        </div>
       </motion.header>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -114,25 +93,27 @@ export default function Navigation() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-x-0 top-[120px] z-40 lg:hidden bg-[#FDF5EF] border-b border-[#E5E5E0] shadow-lg"
+            className="fixed inset-x-0 top-16 z-40 bg-white shadow-lg md:hidden"
           >
-            <nav className="px-6 py-6 space-y-4">
-              <a href="#" className="block text-lg font-medium text-[#2C2F21] py-2">
-                Shop
-              </a>
-              <a href="#" className="block text-lg font-medium text-[#2C2F21] py-2">
-                Wonder Bundles
-              </a>
-              <a href="#" className="block text-lg font-medium text-[#2C2F21] py-2">
-                Inspiration
-              </a>
-              <div className="pt-4 border-t border-[#E5E5E0]">
-                <a href="#" className="block text-sm text-[#5C5F52] py-2">Account</a>
-                <div className="flex items-center gap-2 py-2 text-sm text-[#5C5F52]">
-                  <span>🇨🇦</span> CAD
-                </div>
+            <div className="container py-6">
+              <div className="flex flex-col gap-4">
+                {navLinks.map((link) => (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="text-lg font-medium text-[var(--forest)] hover:text-[var(--orange)] transition-colors py-2"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+                <hr className="border-[var(--cream-dark)]" />
+                <button className="btn-primary w-full justify-center">
+                  Shop Now
+                  <ShoppingCart className="w-4 h-4" />
+                </button>
               </div>
-            </nav>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

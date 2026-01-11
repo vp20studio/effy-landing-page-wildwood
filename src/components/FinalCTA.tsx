@@ -1,114 +1,94 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Check } from 'lucide-react';
-import { product, productMeta } from '@/lib/constants';
-
-const trustPoints = [
-  'Free shipping',
-  '30-day trial',
-  '10-year warranty',
-];
+import { ArrowRight, Truck, RotateCcw, Shield } from 'lucide-react';
 
 export default function FinalCTA() {
   return (
-    <section className="bg-[#BA4B1A] py-20 md:py-28">
-      <div className="max-w-4xl mx-auto px-6 text-center">
-        {/* Decorative Sparkle */}
-        <motion.span
-          initial={{ opacity: 0, scale: 0 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4 }}
-          className="text-[#D3841E] text-3xl mb-6 block"
-        >
-          ✦
-        </motion.span>
+    <section className="section bg-gradient-to-br from-[var(--orange)] to-[#A04218] relative overflow-hidden">
+      {/* Decorative Elements */}
+      <div className="gradient-blur w-[500px] h-[500px] -top-48 -right-48 opacity-30 bg-[radial-gradient(circle,rgba(255,255,255,0.2)_0%,transparent_70%)]" />
+      <div className="gradient-blur w-[400px] h-[400px] -bottom-32 -left-32 opacity-20 bg-[radial-gradient(circle,rgba(211,132,30,0.4)_0%,transparent_70%)]" />
 
-        {/* Headline */}
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-8"
-        >
-          Ready to Transform Your Workspace?
-        </motion.h2>
-
-        {/* Product Name */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-lg md:text-xl text-white/90 mb-2"
-        >
-          {product.name.toUpperCase()}
-        </motion.p>
-
-        {/* Price */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.15 }}
-          className="text-4xl md:text-5xl font-bold text-white mb-8"
-        >
-          ${productMeta.currentPrice.toLocaleString()} CAD
-        </motion.p>
-
-        {/* Trust Points */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="flex flex-wrap items-center justify-center gap-4 md:gap-6 mb-10"
-        >
-          {trustPoints.map((point, index) => (
-            <motion.div
-              key={point}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3 + index * 0.1 }}
-              className="flex items-center gap-2"
-            >
-              <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center">
-                <Check className="w-3 h-3 text-white" />
-              </div>
-              <span className="text-white text-sm md:text-base">{point}</span>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* CTA Button */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-        >
-          <motion.button
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            className="px-12 py-5 bg-[#2C2F21] hover:bg-[#3D4030] text-white font-bold text-lg rounded-md transition-colors shadow-lg"
+      <div className="container relative z-10">
+        <div className="max-w-3xl mx-auto text-center">
+          {/* Badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
           >
-            Add to Cart — ${productMeta.currentPrice.toLocaleString()}
-          </motion.button>
-        </motion.div>
+            <span className="inline-block px-4 py-2 bg-white/20 rounded-full text-white text-sm font-semibold mb-6">
+              Limited Time Offer
+            </span>
+          </motion.div>
 
-        {/* Promo Reminder */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.6 }}
-          className="text-white/70 text-sm mt-6"
-        >
-          Limited time: Use code <span className="font-semibold text-white">{productMeta.promoCode}</span> for {productMeta.promoDiscount} off
-        </motion.p>
+          {/* Headline */}
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-3xl md:text-4xl lg:text-5xl font-serif text-white mb-6"
+          >
+            Ready to Transform Your Workspace?
+          </motion.h2>
+
+          {/* Price */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="mb-8"
+          >
+            <div className="flex items-center justify-center gap-4 mb-2">
+              <span className="text-xl text-white/50 line-through">$1,599</span>
+              <span className="text-5xl md:text-6xl font-bold text-white">$1,299</span>
+              <span className="text-xl text-white/80">CAD</span>
+            </div>
+            <p className="text-white/70">
+              Use code <span className="font-bold text-white">NEWYEAR25</span> for an extra 20% off
+            </p>
+          </motion.div>
+
+          {/* CTA Button */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="mb-10"
+          >
+            <button className="btn-primary bg-white text-[var(--orange)] hover:bg-[var(--cream)] hover:shadow-xl text-lg px-10 py-5">
+              Shop Now
+              <ArrowRight className="w-5 h-5" />
+            </button>
+          </motion.div>
+
+          {/* Trust Badges */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="flex flex-wrap items-center justify-center gap-6 md:gap-10 text-white/80"
+          >
+            <div className="flex items-center gap-2">
+              <Truck className="w-5 h-5" />
+              <span className="text-sm font-medium">Free Shipping</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <RotateCcw className="w-5 h-5" />
+              <span className="text-sm font-medium">30-Day Trial</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Shield className="w-5 h-5" />
+              <span className="text-sm font-medium">10-Year Warranty</span>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
