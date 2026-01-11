@@ -40,7 +40,7 @@ export default function Navigation() {
             {/* Logo */}
             <a href="/" className="flex items-center gap-2">
               <span className={`text-xl md:text-2xl font-serif font-bold transition-colors ${
-                isScrolled ? 'text-[var(--forest)]' : 'text-[var(--forest)]'
+                isScrolled ? 'text-[var(--forest)]' : 'text-white'
               }`}>
                 EFFYDESK
               </span>
@@ -52,8 +52,8 @@ export default function Navigation() {
                 <a
                   key={link.label}
                   href={link.href}
-                  className={`text-sm font-medium transition-colors hover:text-[var(--orange)] ${
-                    isScrolled ? 'text-[var(--forest)]' : 'text-[var(--forest)]'
+                  className={`text-sm font-medium transition-colors hover:text-[var(--gold)] ${
+                    isScrolled ? 'text-[var(--forest)]' : 'text-white/90'
                   }`}
                 >
                   {link.label}
@@ -72,7 +72,7 @@ export default function Navigation() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 text-[var(--forest)]"
+              className={`md:hidden p-2 transition-colors ${isScrolled ? 'text-[var(--forest)]' : 'text-white'}`}
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? (

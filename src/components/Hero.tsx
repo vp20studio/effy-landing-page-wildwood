@@ -111,9 +111,9 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif text-white mb-6 leading-[1.1]"
+              className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif mb-6 leading-[1.1]"
             >
-              The Standing Desk,{' '}
+              <span className="text-white">The Standing Desk,</span>{' '}
               <span className="relative">
                 <span className="text-[var(--gold)]">Redefined</span>
                 <motion.svg
