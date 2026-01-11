@@ -1,129 +1,104 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import { X, Check } from 'lucide-react';
 import { comparison } from '@/lib/constants';
 
 export default function ComparisonSection() {
   return (
-    <section className="bg-[#2C2F21] py-24 md:py-32 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="bg-[#2C2F21] py-20 md:py-28 overflow-hidden">
+      <div className="max-w-5xl mx-auto px-6">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
         >
           <span className="text-[#D3841E] text-2xl mb-4 block">✦</span>
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
             The <span className="text-[#BA4B1A]">Smart</span> Choice
           </h2>
-          <p className="text-lg text-white/60 max-w-2xl mx-auto">
-            See why professionals choose Wildwood over standard desks
+          <p className="text-lg text-white/60 max-w-xl mx-auto">
+            See why professionals choose Wildwood
           </p>
         </motion.div>
 
-        {/* Comparison Grid */}
+        {/* Comparison Grid - Text Only */}
         <div className="grid md:grid-cols-2 gap-6 md:gap-8">
           {/* OLD WAY - Left Side */}
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="relative bg-[#3D4030] rounded-2xl overflow-hidden"
+            transition={{ duration: 0.5 }}
+            className="bg-[#3D4030] rounded-2xl p-8 md:p-10"
           >
-            {/* Image */}
-            <div className="relative aspect-[4/3] grayscale">
-              <Image
-                src={comparison.oldWay.image}
-                alt={comparison.oldWay.title}
-                fill
-                className="object-cover opacity-60"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#3D4030] via-[#3D4030]/50 to-transparent" />
-            </div>
+            {/* Badge */}
+            <span className="inline-block px-3 py-1 text-xs font-semibold tracking-wider text-white/50 bg-white/10 rounded-full mb-6">
+              THE OLD WAY
+            </span>
 
-            {/* Content */}
-            <div className="p-6 md:p-8">
-              {/* Badge */}
-              <span className="inline-block px-3 py-1 text-xs font-semibold tracking-wider text-white/60 bg-white/10 rounded-full mb-4">
-                THE OLD WAY
-              </span>
+            <h3 className="text-2xl md:text-3xl font-bold text-white/80 mb-8">
+              {comparison.oldWay.title}
+            </h3>
 
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-6">
-                {comparison.oldWay.title}
-              </h3>
-
-              {/* Points */}
-              <ul className="space-y-4">
-                {comparison.oldWay.points.map((point, index) => (
-                  <motion.li
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.3 + index * 0.1 }}
-                    className="flex items-start gap-3"
-                  >
-                    <X className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
-                    <span className="text-white/60">{point}</span>
-                  </motion.li>
-                ))}
-              </ul>
-            </div>
+            {/* Points */}
+            <ul className="space-y-5">
+              {comparison.oldWay.points.map((point, index) => (
+                <motion.li
+                  key={index}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 + index * 0.1 }}
+                  className="flex items-start gap-3"
+                >
+                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-red-500/20 flex items-center justify-center mt-0.5">
+                    <X className="w-4 h-4 text-red-400" />
+                  </div>
+                  <span className="text-white/60 text-base md:text-lg">{point}</span>
+                </motion.li>
+              ))}
+            </ul>
           </motion.div>
 
           {/* WILDWOOD - Right Side */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
+            initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative bg-[#BA4B1A] rounded-2xl overflow-hidden"
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="relative bg-[#BA4B1A] rounded-2xl p-8 md:p-10"
           >
-            {/* Image */}
-            <div className="relative aspect-[4/3]">
-              <Image
-                src={comparison.newWay.image}
-                alt={comparison.newWay.title}
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#BA4B1A] via-[#BA4B1A]/50 to-transparent" />
-            </div>
+            {/* Badge */}
+            <span className="inline-block px-3 py-1 text-xs font-semibold tracking-wider text-white bg-white/20 rounded-full mb-6">
+              THE WILDWOOD WAY
+            </span>
 
-            {/* Content */}
-            <div className="p-6 md:p-8">
-              {/* Badge */}
-              <span className="inline-block px-3 py-1 text-xs font-semibold tracking-wider text-[#D3841E] bg-white/20 rounded-full mb-4">
-                THE WILDWOOD WAY
-              </span>
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-8">
+              {comparison.newWay.title}
+            </h3>
 
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-6">
-                {comparison.newWay.title}
-              </h3>
-
-              {/* Points */}
-              <ul className="space-y-4">
-                {comparison.newWay.points.map((point, index) => (
-                  <motion.li
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.4 + index * 0.1 }}
-                    className="flex items-start gap-3"
-                  >
-                    <Check className="w-5 h-5 text-green-300 flex-shrink-0 mt-0.5" />
-                    <span className="text-white">{point}</span>
-                  </motion.li>
-                ))}
-              </ul>
-            </div>
+            {/* Points */}
+            <ul className="space-y-5">
+              {comparison.newWay.points.map((point, index) => (
+                <motion.li
+                  key={index}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 + index * 0.1 }}
+                  className="flex items-start gap-3"
+                >
+                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-white/20 flex items-center justify-center mt-0.5">
+                    <Check className="w-4 h-4 text-white" />
+                  </div>
+                  <span className="text-white text-base md:text-lg">{point}</span>
+                </motion.li>
+              ))}
+            </ul>
 
             {/* Gold Highlight Border */}
             <div className="absolute inset-0 border-2 border-[#D3841E] rounded-2xl pointer-events-none" />
@@ -135,13 +110,10 @@ export default function ComparisonSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.6 }}
-          className="text-center mt-12 md:mt-16"
+          transition={{ delay: 0.4 }}
+          className="text-center mt-12"
         >
-          <p className="text-white/60 mb-6">
-            Join thousands of professionals who made the switch
-          </p>
-          <button className="px-8 py-4 bg-white text-[#2C2F21] hover:bg-[#FDF5EF] font-semibold rounded-md transition-colors">
+          <button className="px-8 py-4 bg-white text-[#2C2F21] hover:bg-[#FDF5EF] font-semibold rounded-lg transition-colors">
             Make the Smart Choice
           </button>
         </motion.div>
