@@ -6,8 +6,8 @@ import { useEffect, useState } from 'react';
 
 const stats = [
   { icon: Star, value: 4.9, label: 'Customer Rating', suffix: '/5', decimals: 1 },
-  { icon: Users, value: 247, label: 'Happy Reviews', suffix: '+', decimals: 0 },
-  { icon: Shield, value: 10, label: 'Year Warranty', suffix: 'yr', decimals: 0 },
+  { icon: Users, value: 233, label: 'Verified Reviews', suffix: '+', decimals: 0 },
+  { icon: Shield, value: 20, label: 'Year Warranty', suffix: 'yr', decimals: 0 },
   { icon: Truck, value: 0, label: 'Shipping Cost', suffix: '', prefix: 'Free', decimals: 0 },
 ];
 

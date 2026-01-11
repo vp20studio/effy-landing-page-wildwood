@@ -190,7 +190,7 @@ export default function Hero() {
               {[
                 { icon: Truck, label: 'Free Shipping' },
                 { icon: RotateCcw, label: '30-Day Trial' },
-                { icon: Shield, label: '10-Year Warranty' },
+                { icon: Shield, label: '20-Year Warranty' },
               ].map((item, i) => (
                 <div key={item.label} className="flex items-center gap-2">
                   <item.icon className="w-4 h-4" />

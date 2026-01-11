@@ -10,8 +10,8 @@ const reviews = [
     location: 'Vancouver, BC',
     role: 'Software Engineer',
     rating: 5,
-    title: 'Worth every penny',
-    text: 'This desk changed my work-from-home life. The build quality is incredible—you can feel the difference solid wood makes. My back pain has significantly improved.',
+    title: 'My back pain is gone',
+    text: 'After 3 weeks of using the Wildwood, my chronic lower back pain has completely disappeared. The sit-stand transitions throughout the day have been life-changing. Worth every penny.',
     initial: 'S',
     gradient: 'from-pink-500 to-rose-600',
     verified: true,
@@ -22,8 +22,8 @@ const reviews = [
     location: 'Toronto, ON',
     role: 'Creative Director',
     rating: 5,
-    title: 'Executive quality',
-    text: 'As someone who spends 10+ hours at my desk, this investment has been transformative. The whisper-quiet motors are a game-changer for video calls.',
+    title: 'Quietest desk I\'ve ever owned',
+    text: 'I take video calls all day and was worried about motor noise. This thing is whisper quiet—my colleagues can\'t even tell when I\'m adjusting it mid-meeting. Incredible engineering.',
     initial: 'J',
     gradient: 'from-blue-500 to-indigo-600',
     verified: true,
@@ -34,10 +34,70 @@ const reviews = [
     location: 'Calgary, AB',
     role: 'Product Manager',
     rating: 5,
-    title: 'Perfect for small spaces',
-    text: 'The 48" Maple fits perfectly in my condo and the light wood brightens up the whole room. Assembly was surprisingly easy—done in 25 minutes!',
+    title: 'Assembly was actually easy',
+    text: 'Was dreading assembly but it was surprisingly straightforward. Done in about 30 minutes with just the included tools. The instructions were clear and everything fit perfectly.',
     initial: 'M',
     gradient: 'from-emerald-500 to-teal-600',
+    verified: true,
+  },
+  {
+    id: 4,
+    name: 'David L.',
+    location: 'Montreal, QC',
+    role: 'Architect',
+    rating: 5,
+    title: 'Worth every penny, looks stunning',
+    text: 'The walnut desktop is absolutely gorgeous—clients always comment on it during video calls. It\'s not just a desk, it\'s a statement piece. The quality is obvious the moment you touch it.',
+    initial: 'D',
+    gradient: 'from-violet-500 to-purple-600',
+    verified: true,
+  },
+  {
+    id: 5,
+    name: 'Emily R.',
+    location: 'Ottawa, ON',
+    role: 'Marketing Manager',
+    rating: 5,
+    title: 'Customer service was incredible',
+    text: 'Had a question about cable management options and their support team responded within an hour with detailed photos and suggestions. This level of service is rare nowadays.',
+    initial: 'E',
+    gradient: 'from-cyan-500 to-blue-600',
+    verified: true,
+  },
+  {
+    id: 6,
+    name: 'Mark H.',
+    location: 'Edmonton, AB',
+    role: 'Financial Analyst',
+    rating: 5,
+    title: '20-year warranty sealed the deal',
+    text: 'I compared a dozen standing desks and no one else offers a 20-year warranty. That confidence in their product made my decision easy. Already recommending it to my colleagues.',
+    initial: 'M',
+    gradient: 'from-amber-500 to-orange-600',
+    verified: true,
+  },
+  {
+    id: 7,
+    name: 'Jessica W.',
+    location: 'Winnipeg, MB',
+    role: 'UX Designer',
+    rating: 5,
+    title: 'Upgraded from IKEA, night and day',
+    text: 'My old IKEA desk wobbled at standing height and the motor was loud. The Wildwood is rock solid even at max height. The dual motors make a real difference—smooth and stable.',
+    initial: 'J',
+    gradient: 'from-rose-500 to-pink-600',
+    verified: true,
+  },
+  {
+    id: 8,
+    name: 'Chris P.',
+    location: 'Halifax, NS',
+    role: 'Developer',
+    rating: 5,
+    title: 'Wireless charging is a game-changer',
+    text: 'Didn\'t think I\'d use the built-in wireless charging much, but now I can\'t imagine a desk without it. Phone always charged, no cable clutter. Small detail, big quality of life improvement.',
+    initial: 'C',
+    gradient: 'from-indigo-500 to-blue-600',
     verified: true,
   },
 ];
@@ -62,13 +122,13 @@ export default function Reviews() {
 
       {/* Floating particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(8)].map((_, i) => (
+        {[...Array(10)].map((_, i) => (
           <motion.div
             key={i}
             className="absolute w-1 h-1 rounded-full bg-[var(--gold)]/30"
             style={{
-              left: `${10 + i * 12}%`,
-              top: `${20 + (i % 4) * 20}%`,
+              left: `${5 + i * 10}%`,
+              top: `${10 + (i % 5) * 18}%`,
             }}
             animate={{
               y: [0, -30, 0],
@@ -99,12 +159,12 @@ export default function Reviews() {
             className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white text-sm font-medium mb-6 border border-white/10"
           >
             <Star className="w-4 h-4 text-[var(--gold)] fill-[var(--gold)]" />
-            Customer Reviews
+            Verified Reviews
           </motion.span>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white mb-6">
-            What Customers{' '}
+            Real Results from{' '}
             <span className="relative">
-              <span className="text-[var(--gold)]">Say</span>
+              <span className="text-[var(--gold)]">Real People</span>
               <motion.div
                 className="absolute -bottom-2 left-0 right-0 h-1 bg-[var(--gold)]/30 rounded-full"
                 initial={{ scaleX: 0 }}
@@ -132,18 +192,18 @@ export default function Reviews() {
                   viewport={{ once: true }}
                   transition={{ delay: 0.3 + i * 0.1 }}
                 >
-                  <Star className="w-7 h-7 fill-[var(--gold)] text-[var(--gold)]" />
+                  <Star className="w-8 h-8 fill-[var(--gold)] text-[var(--gold)]" />
                 </motion.div>
               ))}
             </div>
-            <p className="text-white/60">
-              <span className="text-white font-semibold">4.9</span> out of 5 based on <span className="text-white font-semibold">247+</span> reviews
+            <p className="text-white/60 text-lg">
+              <span className="text-white font-bold text-2xl">4.9</span> out of 5 based on <span className="text-white font-semibold">233+</span> verified reviews
             </p>
           </motion.div>
         </motion.div>
 
-        {/* Reviews Grid */}
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+        {/* Reviews Grid - 2 columns */}
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
           {reviews.map((review, index) => (
             <motion.div
               key={review.id}
@@ -151,54 +211,54 @@ export default function Reviews() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{
-                duration: 0.6,
-                delay: index * 0.15,
+                duration: 0.5,
+                delay: index * 0.08,
                 type: 'spring',
                 stiffness: 100
               }}
-              whileHover={{ y: -8, transition: { duration: 0.3 } }}
+              whileHover={{ y: -5, transition: { duration: 0.2 } }}
               className="group relative"
             >
               {/* Card glow on hover */}
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-[var(--gold)]/50 to-[var(--orange)]/50 rounded-3xl opacity-0 group-hover:opacity-100 blur transition-opacity duration-500" />
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-[var(--gold)]/40 to-[var(--orange)]/40 rounded-2xl opacity-0 group-hover:opacity-100 blur transition-opacity duration-500" />
 
-              <div className="relative bg-white/5 backdrop-blur-md rounded-3xl p-8 border border-white/10 h-full">
+              <div className="relative bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10 h-full">
                 {/* Quote icon */}
-                <div className="absolute top-6 right-6">
-                  <Quote className="w-10 h-10 text-[var(--gold)]/20" />
+                <div className="absolute top-4 right-4">
+                  <Quote className="w-8 h-8 text-[var(--gold)]/15" />
                 </div>
 
                 {/* Stars */}
-                <div className="flex gap-1 mb-4">
+                <div className="flex gap-0.5 mb-3">
                   {[...Array(review.rating)].map((_, i) => (
                     <Star key={i} className="w-4 h-4 fill-[var(--gold)] text-[var(--gold)]" />
                   ))}
                 </div>
 
                 {/* Title */}
-                <h4 className="text-lg font-semibold text-white mb-3">
+                <h4 className="text-base font-semibold text-white mb-2">
                   "{review.title}"
                 </h4>
 
                 {/* Review Text */}
-                <p className="text-white/70 mb-6 leading-relaxed">
+                <p className="text-white/60 text-sm leading-relaxed mb-4">
                   {review.text}
                 </p>
 
                 {/* Reviewer */}
-                <div className="flex items-center gap-4 pt-4 border-t border-white/10">
+                <div className="flex items-center gap-3 pt-3 border-t border-white/10">
                   {/* Avatar with gradient */}
-                  <div className={`relative w-12 h-12 rounded-full bg-gradient-to-br ${review.gradient} flex items-center justify-center shadow-lg`}>
-                    <span className="text-white font-bold text-lg">{review.initial}</span>
+                  <div className={`w-10 h-10 rounded-full bg-gradient-to-br ${review.gradient} flex items-center justify-center shadow-lg`}>
+                    <span className="text-white font-bold">{review.initial}</span>
                   </div>
                   <div className="flex-1">
-                    <div className="flex items-center gap-2">
-                      <p className="font-semibold text-white">{review.name}</p>
+                    <div className="flex items-center gap-1.5">
+                      <p className="font-medium text-white text-sm">{review.name}</p>
                       {review.verified && (
-                        <BadgeCheck className="w-4 h-4 text-[var(--gold)]" />
+                        <BadgeCheck className="w-3.5 h-3.5 text-[var(--gold)]" />
                       )}
                     </div>
-                    <p className="text-sm text-white/50">{review.role} • {review.location}</p>
+                    <p className="text-xs text-white/40">{review.location}</p>
                   </div>
                 </div>
               </div>

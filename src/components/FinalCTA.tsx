@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, Truck, RotateCcw, Shield, Sparkles, Clock } from 'lucide-react';
+import { ArrowRight, Truck, RotateCcw, Shield, ShieldCheck, CreditCard } from 'lucide-react';
 
 export default function FinalCTA() {
   return (
@@ -51,7 +51,7 @@ export default function FinalCTA() {
 
       <div className="container relative z-10">
         <div className="max-w-4xl mx-auto">
-          {/* Badge */}
+          {/* Risk-Free Badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -60,9 +60,8 @@ export default function FinalCTA() {
             className="text-center mb-8"
           >
             <span className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm font-semibold border border-white/20">
-              <Clock className="w-4 h-4" />
-              Limited Time Offer
-              <Sparkles className="w-4 h-4" />
+              <ShieldCheck className="w-4 h-4" />
+              100% Risk-Free Purchase
             </span>
           </motion.div>
 
@@ -72,12 +71,12 @@ export default function FinalCTA() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-serif text-white text-center mb-8 leading-tight"
+            className="text-4xl md:text-5xl lg:text-6xl font-serif text-white text-center mb-6 leading-tight"
           >
-            Ready to Transform
+            Try Wildwood
             <br />
             <span className="relative">
-              Your Workspace?
+              Risk-Free for 30 Days
               <motion.div
                 className="absolute -bottom-2 left-0 right-0 h-1 bg-white/30 rounded-full"
                 initial={{ scaleX: 0 }}
@@ -88,43 +87,63 @@ export default function FinalCTA() {
             </span>
           </motion.h2>
 
-          {/* Price Card */}
+          {/* Subheadline */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-xl text-white/80 text-center max-w-2xl mx-auto mb-10"
+          >
+            If the Wildwood doesn't transform your workday, return it for a full refund. We'll even cover the shipping.
+          </motion.p>
+
+          {/* Main Card */}
           <motion.div
             initial={{ opacity: 0, y: 30, scale: 0.95 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
             className="relative mb-10"
           >
             {/* Glow */}
             <div className="absolute -inset-1 bg-white/20 rounded-3xl blur-xl" />
 
             <div className="relative bg-white/10 backdrop-blur-md rounded-3xl p-8 md:p-10 border border-white/20">
-              <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-                {/* Price */}
+              <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+                {/* Left: Financing Option */}
                 <div className="text-center md:text-left">
-                  <div className="flex items-baseline justify-center md:justify-start gap-3 mb-2">
-                    <span className="text-2xl text-white/50 line-through">$1,599</span>
-                    <span className="text-5xl md:text-6xl font-bold text-white">$1,299</span>
-                    <span className="text-xl text-white/70">CAD</span>
+                  <div className="flex items-center justify-center md:justify-start gap-2 mb-3">
+                    <CreditCard className="w-5 h-5 text-white/70" />
+                    <span className="text-white/70">Pay in installments</span>
                   </div>
-                  <p className="text-white/70">
-                    Use code <span className="font-bold text-white bg-white/20 px-2 py-0.5 rounded">NEWYEAR25</span> for an extra 20% off
+                  <div className="flex items-baseline justify-center md:justify-start gap-2 mb-2">
+                    <span className="text-4xl md:text-5xl font-bold text-white">$263</span>
+                    <span className="text-lg text-white/70">/payment</span>
+                  </div>
+                  <p className="text-white/60 text-sm">
+                    4 interest-free payments with Sezzle
                   </p>
                 </div>
 
-                {/* CTA Button */}
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="group relative overflow-hidden bg-white text-[var(--orange)] font-bold text-lg px-10 py-5 rounded-xl shadow-2xl hover:shadow-[0_0_50px_rgba(255,255,255,0.3)] transition-all whitespace-nowrap"
-                >
-                  <span className="relative z-10 flex items-center gap-2">
-                    Shop Now
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  </span>
-                  <div className="absolute inset-0 bg-[var(--cream)] opacity-0 group-hover:opacity-100 transition-opacity" />
-                </motion.button>
+                {/* Right: CTA */}
+                <div className="flex flex-col items-center md:items-end gap-4">
+                  <motion.a
+                    href="#product-picker"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="group relative overflow-hidden bg-white text-[var(--orange)] font-bold text-lg px-10 py-5 rounded-xl shadow-2xl hover:shadow-[0_0_50px_rgba(255,255,255,0.3)] transition-all whitespace-nowrap"
+                  >
+                    <span className="relative z-10 flex items-center gap-2">
+                      Configure Your Desk
+                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    </span>
+                    <div className="absolute inset-0 bg-[var(--cream)] opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </motion.a>
+                  <p className="text-white/50 text-sm">
+                    Starting at $1,050 CAD
+                  </p>
+                </div>
               </div>
             </div>
           </motion.div>
@@ -134,20 +153,20 @@ export default function FinalCTA() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
             className="flex flex-wrap items-center justify-center gap-8 md:gap-12"
           >
             {[
               { icon: Truck, label: 'Free Shipping', sublabel: 'Canada & US' },
-              { icon: RotateCcw, label: '30-Day Trial', sublabel: 'Risk-free' },
-              { icon: Shield, label: '10-Year Warranty', sublabel: 'Full coverage' },
+              { icon: RotateCcw, label: '30-Day Trial', sublabel: 'Full refund' },
+              { icon: Shield, label: '20-Year Warranty', sublabel: 'Industry leading' },
             ].map((item, index) => (
               <motion.div
                 key={item.label}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.4 + index * 0.1 }}
+                transition={{ delay: 0.5 + index * 0.1 }}
                 className="flex items-center gap-3 text-white"
               >
                 <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/10">
@@ -161,15 +180,15 @@ export default function FinalCTA() {
             ))}
           </motion.div>
 
-          {/* Urgency note */}
+          {/* Final Note */}
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.6 }}
+            transition={{ delay: 0.7 }}
             className="text-center text-white/50 text-sm mt-10"
           >
-            Sale ends soon • Free shipping on orders over $500
+            Questions? Our support team is available 7 days a week
           </motion.p>
         </div>
       </div>

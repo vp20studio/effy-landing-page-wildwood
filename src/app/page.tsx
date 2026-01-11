@@ -3,10 +3,11 @@
 import Navigation from '@/components/Navigation';
 import Hero from '@/components/Hero';
 import SocialProofStats from '@/components/SocialProofStats';
-import ValueProps from '@/components/ValueProps';
-import PricingComparison from '@/components/PricingComparison';
-import HowItWorks from '@/components/HowItWorks';
+import ProductPicker from '@/components/ProductPicker';
+import Benefits from '@/components/Benefits';
 import Reviews from '@/components/Reviews';
+import Comparison from '@/components/Comparison';
+import HowItWorks from '@/components/HowItWorks';
 import FAQ from '@/components/FAQ';
 import FinalCTA from '@/components/FinalCTA';
 import Footer from '@/components/Footer';
@@ -22,34 +23,35 @@ export default function Home() {
       <StickyBar />
 
       <main className="min-h-screen">
-        {/* Hero: Full-screen with gradient effects */}
+        {/* Section 1: Hero - Interactive desk visualizer */}
         <Hero />
 
-        {/* Social Proof Stats: Horizontal strip */}
+        {/* Section 2: Social Proof Stats - Trust strip */}
         <SocialProofStats />
 
-        {/* Value Props: 4 benefit cards */}
-        <section id="features">
-          <ValueProps />
-        </section>
+        {/* Section 3: Product Picker - Configure your desk */}
+        <ProductPicker />
 
-        {/* Pricing Comparison: Treantly-style side-by-side */}
-        <PricingComparison />
+        {/* Section 4: Benefits - Transformation focus */}
+        <Benefits />
 
-        {/* How It Works: 3-step numbered process */}
-        <HowItWorks />
-
-        {/* Customer Reviews */}
+        {/* Section 5: Reviews - 8 curated testimonials */}
         <section id="reviews">
           <Reviews />
         </section>
 
-        {/* FAQ Accordion */}
+        {/* Section 6: Comparison - vs competitors */}
+        <Comparison />
+
+        {/* Section 7: How It Works - Order process */}
+        <HowItWorks />
+
+        {/* Section 8: FAQ - Objection handling */}
         <section id="faq">
           <FAQ />
         </section>
 
-        {/* Final CTA: Conversion section */}
+        {/* Section 9: Final CTA - Risk reversal */}
         <FinalCTA />
 
         {/* Footer */}

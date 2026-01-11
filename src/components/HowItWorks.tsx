@@ -1,28 +1,31 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Package, Wrench, Smile, ArrowRight } from 'lucide-react';
+import { Package, Wrench, Smile, ArrowRight, PlayCircle, Phone } from 'lucide-react';
 
 const steps = [
   {
     number: '01',
     icon: Package,
-    title: 'Order',
-    description: 'Choose your size and wood finish. Free shipping across Canada & US.',
+    title: 'Order Online',
+    description: 'Choose your wood, frame, and size. Ships free within 5-7 business days anywhere in Canada or the continental US.',
+    detail: 'Full tracking included',
     color: 'from-blue-500 to-indigo-600',
   },
   {
     number: '02',
     icon: Wrench,
-    title: 'Assemble',
-    description: '20-minute setup with included tools. No experience needed.',
+    title: 'Easy Assembly',
+    description: '30-45 minutes with included tools. Step-by-step guide with QR codes linking to video tutorials. No experience needed.',
+    detail: 'Video guide included',
     color: 'from-[var(--gold)] to-[var(--orange)]',
   },
   {
     number: '03',
     icon: Smile,
-    title: 'Enjoy',
-    description: 'Save your heights and adjust with one touch. Transform your workday.',
+    title: 'Enjoy for Decades',
+    description: 'Save your preferred heights, adjust with one touch, and transform your workday. Backed by our 20-year warranty.',
+    detail: 'Lifetime support',
     color: 'from-emerald-500 to-teal-600',
   },
 ];
@@ -78,9 +81,9 @@ export default function HowItWorks() {
             Simple Process
           </motion.span>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-[var(--forest)] mb-6">
-            Setup in{' '}
+            From Box to{' '}
             <span className="relative">
-              <span className="text-[var(--orange)]">Minutes</span>
+              <span className="text-[var(--orange)]">Beautiful</span>
               <motion.div
                 className="absolute -bottom-2 left-0 right-0 h-1 bg-[var(--orange)]/30 rounded-full"
                 initial={{ scaleX: 0 }}
@@ -91,7 +94,7 @@ export default function HowItWorks() {
             </span>
           </h2>
           <p className="text-xl text-[var(--forest)]/60 max-w-2xl mx-auto">
-            From unboxing to working—faster than your lunch break
+            Setup is easier than assembling IKEA furniture—we promise
           </p>
         </motion.div>
 
@@ -151,9 +154,15 @@ export default function HowItWorks() {
                 <h3 className="text-2xl font-serif text-[var(--forest)] mb-3">
                   {step.title}
                 </h3>
-                <p className="text-[var(--forest)]/60 leading-relaxed max-w-xs mx-auto">
+                <p className="text-[var(--forest)]/60 leading-relaxed max-w-xs mx-auto mb-3">
                   {step.description}
                 </p>
+
+                {/* Detail badge */}
+                <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--gold)] bg-[var(--gold)]/10 px-3 py-1.5 rounded-full">
+                  {index === 1 ? <PlayCircle className="w-3.5 h-3.5" /> : null}
+                  {step.detail}
+                </span>
 
                 {/* Arrow (mobile) */}
                 {index < steps.length - 1 && (
@@ -165,6 +174,30 @@ export default function HowItWorks() {
             ))}
           </div>
         </div>
+
+        {/* Support CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.6 }}
+          className="text-center mt-16"
+        >
+          <div className="inline-flex flex-col sm:flex-row items-center gap-4 p-5 bg-white rounded-2xl shadow-lg border border-[var(--cream-dark)]">
+            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[var(--gold)] to-[var(--orange)] flex items-center justify-center">
+              <Phone className="w-5 h-5 text-white" />
+            </div>
+            <div className="text-center sm:text-left">
+              <p className="text-sm text-[var(--forest)]/60">Need assembly help?</p>
+              <p className="font-semibold text-[var(--forest)]">
+                Call us 7 days a week or{' '}
+                <a href="#" className="text-[var(--orange)] hover:underline">
+                  watch the video guide
+                </a>
+              </p>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
