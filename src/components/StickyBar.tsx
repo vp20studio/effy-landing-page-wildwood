@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ShoppingCart, X } from 'lucide-react';
+import { getDefaultCartUrl, PROMO_CODE } from '@/lib/shopify';
 
 export default function StickyBar() {
   const [isVisible, setIsVisible] = useState(false);
@@ -34,16 +35,21 @@ export default function StickyBar() {
               <div className="flex items-center justify-between gap-4">
                 {/* Price Info */}
                 <div className="flex items-center gap-2">
-                  <span className="text-sm text-[var(--forest)]/50 line-through">$1,599</span>
-                  <span className="text-xl font-bold text-[var(--forest)]">$1,299</span>
+                  <span className="text-sm text-[var(--forest)]/50 line-through">$1,350</span>
+                  <span className="text-xl font-bold text-[var(--forest)]">$1,050</span>
                   <span className="badge-gold text-xs">Save $300</span>
                 </div>
 
                 {/* CTA Button */}
-                <button className="btn-primary text-sm px-5 py-2.5 whitespace-nowrap">
+                <a
+                  href={getDefaultCartUrl(PROMO_CODE)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary text-sm px-5 py-2.5 whitespace-nowrap"
+                >
                   Buy Now
                   <ShoppingCart className="w-4 h-4" />
-                </button>
+                </a>
 
                 {/* Dismiss Button */}
                 <button

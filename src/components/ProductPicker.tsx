@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Check, Truck, RotateCcw, Shield, ArrowRight, Sparkles } from 'lucide-react';
+import { getCartUrl, PROMO_CODE } from '@/lib/shopify';
 
 // Wood + Frame Combinations
 const variants = [
@@ -69,9 +70,13 @@ export default function ProductPicker() {
 
   const sezzlePayment = Math.round(selectedSize.price / 4);
 
-  const buildProductUrl = () => {
-    const variantParam = `${selectedVariant.wood.toUpperCase().replace(' ', '-')}-${selectedVariant.frame.toUpperCase()}-${selectedSize.id}`;
-    return `https://effydesk.com/products/wildwood-standing-desk?variant=${variantParam}`;
+  const getCheckoutUrl = () => {
+    return getCartUrl(
+      selectedVariant.wood,
+      selectedVariant.frame,
+      selectedSize.id,
+      PROMO_CODE
+    );
   };
 
   return (
@@ -308,7 +313,7 @@ export default function ProductPicker() {
 
                 {/* Add to Cart CTA */}
                 <motion.a
-                  href={buildProductUrl()}
+                  href={getCheckoutUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.02 }}

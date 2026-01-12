@@ -63,10 +63,10 @@ export default function Navigation() {
 
             {/* Desktop CTA */}
             <div className="hidden md:flex items-center gap-4">
-              <button className="btn-primary text-sm px-6 py-2.5">
+              <a href="#product-picker" className="btn-primary text-sm px-6 py-2.5">
                 Shop Now
                 <ShoppingCart className="w-4 h-4" />
-              </button>
+              </a>
             </div>
 
             {/* Mobile Menu Button */}
@@ -108,10 +108,14 @@ export default function Navigation() {
                   </a>
                 ))}
                 <hr className="border-[var(--cream-dark)]" />
-                <button className="btn-primary w-full justify-center">
+                <a
+                  href="#product-picker"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="btn-primary w-full justify-center"
+                >
                   Shop Now
                   <ShoppingCart className="w-4 h-4" />
-                </button>
+                </a>
               </div>
             </div>
           </motion.div>
