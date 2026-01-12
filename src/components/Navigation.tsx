@@ -1,21 +1,11 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ShoppingCart } from 'lucide-react';
 
 export default function Navigation() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const navLinks = [
     { label: 'Features', href: '#features' },
@@ -29,19 +19,13 @@ export default function Navigation() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled
-            ? 'bg-white/95 backdrop-blur-md shadow-md'
-            : 'bg-transparent'
-        }`}
+        className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm"
       >
         <div className="container">
           <nav className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
             <a href="/" className="flex items-center gap-2">
-              <span className={`text-xl md:text-2xl font-serif font-bold transition-colors ${
-                isScrolled ? 'text-[var(--forest)]' : 'text-white'
-              }`}>
+              <span className="text-xl md:text-2xl font-serif font-bold text-[var(--forest)]">
                 EFFYDESK
               </span>
             </a>
@@ -52,9 +36,7 @@ export default function Navigation() {
                 <a
                   key={link.label}
                   href={link.href}
-                  className={`text-sm font-medium transition-colors hover:text-[var(--gold)] ${
-                    isScrolled ? 'text-[var(--forest)]' : 'text-white/90'
-                  }`}
+                  className="text-sm font-medium text-[var(--forest)] transition-colors hover:text-[var(--orange)]"
                 >
                   {link.label}
                 </a>
@@ -72,7 +54,7 @@ export default function Navigation() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`md:hidden p-2 transition-colors ${isScrolled ? 'text-[var(--forest)]' : 'text-white'}`}
+              className="md:hidden p-2 text-[var(--forest)]"
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? (

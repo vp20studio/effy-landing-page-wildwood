@@ -1,239 +1,188 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Star, Quote, BadgeCheck } from 'lucide-react';
+import { Star, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 
 const reviews = [
   {
     id: 1,
-    name: 'Sarah M.',
+    name: 'Sarah Mitchell',
+    title: 'Software Engineer',
     location: 'Vancouver, BC',
-    role: 'Software Engineer',
     rating: 5,
-    title: 'My back pain is gone',
-    text: 'After 3 weeks of using the Wildwood, my chronic lower back pain has completely disappeared. The sit-stand transitions throughout the day have been life-changing. Worth every penny.',
-    initial: 'S',
-    verified: true,
+    headline: 'My back pain disappeared after 3 weeks',
+    text: 'I was skeptical that a desk could make such a difference, but the Wildwood has completely changed my workday. The sit-stand transitions are so smooth and quiet that I actually use them. After years of chronic lower back pain, I finally feel comfortable working for hours.',
+    image: 'https://cdn.shopify.com/s/files/1/0078/8715/9367/files/WalnutBlackWildwoodDesk1.jpg?v=1766187900',
   },
   {
     id: 2,
-    name: 'James T.',
+    name: 'James Chen',
+    title: 'Creative Director',
     location: 'Toronto, ON',
-    role: 'Creative Director',
     rating: 5,
-    title: 'Quietest desk I\'ve ever owned',
-    text: 'I take video calls all day and was worried about motor noise. This thing is whisper quiet—my colleagues can\'t even tell when I\'m adjusting it mid-meeting. Incredible engineering.',
-    initial: 'J',
-    verified: true,
+    headline: 'The quietest desk motor I have ever used',
+    text: 'I take video calls all day and was worried about motor noise. This thing is whisper quiet - my colleagues cannot even tell when I am adjusting it mid-meeting. The walnut top gets compliments on every call. It is furniture-grade quality.',
+    image: 'https://cdn.shopify.com/s/files/1/0078/8715/9367/files/Walnut_Black.jpg?v=1765489975',
   },
   {
     id: 3,
-    name: 'Michelle K.',
+    name: 'Michelle Park',
+    title: 'Architect',
     location: 'Calgary, AB',
-    role: 'Product Manager',
     rating: 5,
-    title: 'Assembly was actually easy',
-    text: 'Was dreading assembly but it was surprisingly straightforward. Done in about 30 minutes with just the included tools. The instructions were clear and everything fit perfectly.',
-    initial: 'M',
-    verified: true,
-  },
-  {
-    id: 4,
-    name: 'David L.',
-    location: 'Montreal, QC',
-    role: 'Architect',
-    rating: 5,
-    title: 'Worth every penny, looks stunning',
-    text: 'The walnut desktop is absolutely gorgeous—clients always comment on it during video calls. It\'s not just a desk, it\'s a statement piece. The quality is obvious the moment you touch it.',
-    initial: 'D',
-    verified: true,
-  },
-  {
-    id: 5,
-    name: 'Emily R.',
-    location: 'Ottawa, ON',
-    role: 'Marketing Manager',
-    rating: 5,
-    title: 'Customer service was incredible',
-    text: 'Had a question about cable management options and their support team responded within an hour with detailed photos and suggestions. This level of service is rare nowadays.',
-    initial: 'E',
-    verified: true,
-  },
-  {
-    id: 6,
-    name: 'Mark H.',
-    location: 'Edmonton, AB',
-    role: 'Financial Analyst',
-    rating: 5,
-    title: '20-year warranty sealed the deal',
-    text: 'I compared a dozen standing desks and no one else offers a 20-year warranty. That confidence in their product made my decision easy. Already recommending it to my colleagues.',
-    initial: 'M',
-    verified: true,
-  },
-  {
-    id: 7,
-    name: 'Jessica W.',
-    location: 'Winnipeg, MB',
-    role: 'UX Designer',
-    rating: 5,
-    title: 'Upgraded from IKEA, night and day',
-    text: 'My old IKEA desk wobbled at standing height and the motor was loud. The Wildwood is rock solid even at max height. The dual motors make a real difference—smooth and stable.',
-    initial: 'J',
-    verified: true,
-  },
-  {
-    id: 8,
-    name: 'Chris P.',
-    location: 'Halifax, NS',
-    role: 'Developer',
-    rating: 5,
-    title: 'Wireless charging is a game-changer',
-    text: 'Didn\'t think I\'d use the built-in wireless charging much, but now I can\'t imagine a desk without it. Phone always charged, no cable clutter. Small detail, big quality of life improvement.',
-    initial: 'C',
-    verified: true,
+    headline: 'Worth every penny for the 20-year warranty alone',
+    text: 'I compared a dozen standing desks before choosing the Wildwood. No one else offers a 20-year warranty - that tells you everything about quality. Assembly took 25 minutes. The solid wood top and steel frame feel like they will last forever.',
+    image: 'https://cdn.shopify.com/s/files/1/0078/8715/9367/files/PheasentWood_Black.jpg?v=1765489975',
   },
 ];
 
 export default function Reviews() {
-  return (
-    <section className="relative py-24 md:py-32 bg-[var(--forest)] overflow-hidden">
-      {/* Subtle background glow */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-bl from-[var(--gold)]/10 to-transparent rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gradient-to-tr from-[var(--orange)]/10 to-transparent rounded-full blur-3xl" />
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-      <div className="container relative z-10">
-        {/* Section Header */}
+  const nextReview = () => {
+    setCurrentIndex((prev) => (prev + 1) % reviews.length);
+  };
+
+  const prevReview = () => {
+    setCurrentIndex((prev) => (prev - 1 + reviews.length) % reviews.length);
+  };
+
+  const currentReview = reviews[currentIndex];
+
+  return (
+    <section className="relative py-20 md:py-28 bg-[var(--cream)]">
+      <div className="container">
+        {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16 md:mb-20"
+          className="text-center mb-12"
         >
-          <motion.span
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white text-sm font-medium mb-6 border border-white/20"
-          >
-            <Star className="w-4 h-4 text-[var(--gold)] fill-[var(--gold)]" />
-            Verified Reviews
-          </motion.span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white mb-6">
-            Real Results from{' '}
-            <span className="relative">
-              <span className="text-[var(--gold)]">Real People</span>
-              <motion.div
-                className="absolute -bottom-2 left-0 right-0 h-1 bg-[var(--gold)]/30 rounded-full"
-                initial={{ scaleX: 0 }}
-                whileInView={{ scaleX: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-              />
-            </span>
+          <div className="flex items-center justify-center gap-1 mb-4">
+            {[...Array(5)].map((_, i) => (
+              <Star key={i} className="w-6 h-6 fill-[var(--gold)] text-[var(--gold)]" />
+            ))}
+          </div>
+          <p className="text-lg text-[var(--forest)]/60 mb-2">
+            <span className="font-bold text-[var(--forest)]">4.9/5</span> from 233+ verified reviews
+          </p>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-[var(--forest)]">
+            What Our Customers Say
           </h2>
-
-          {/* Rating summary */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="flex flex-col items-center gap-3"
-          >
-            <div className="flex items-center gap-1">
-              {[...Array(5)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, scale: 0 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.3 + i * 0.1 }}
-                >
-                  <Star className="w-8 h-8 fill-[var(--gold)] text-[var(--gold)]" />
-                </motion.div>
-              ))}
-            </div>
-            <p className="text-white/70 text-lg">
-              <span className="text-white font-bold text-2xl">4.9</span> out of 5 based on <span className="text-white font-semibold">233+</span> verified reviews
-            </p>
-          </motion.div>
         </motion.div>
 
-        {/* Reviews Grid - 2 columns */}
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
-          {reviews.map((review, index) => (
-            <motion.div
-              key={review.id}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 0.5,
-                delay: index * 0.08,
-                type: 'spring',
-                stiffness: 100
-              }}
-              whileHover={{ y: -5, transition: { duration: 0.2 } }}
-              className="group"
-            >
-              <div className="bg-white rounded-2xl p-6 shadow-lg h-full transition-shadow hover:shadow-xl">
-                {/* Quote icon */}
-                <div className="absolute top-4 right-4">
-                  <Quote className="w-8 h-8 text-[var(--orange)]/30" />
-                </div>
+        {/* Featured Review */}
+        <motion.div
+          key={currentReview.id}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+          className="max-w-4xl mx-auto"
+        >
+          <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+            <div className="grid md:grid-cols-2">
+              {/* Image */}
+              <div
+                className="h-64 md:h-auto bg-cover bg-center"
+                style={{ backgroundImage: `url(${currentReview.image})` }}
+              />
+
+              {/* Content */}
+              <div className="p-8 md:p-10">
+                <Quote className="w-10 h-10 text-[var(--orange)]/20 mb-4" />
 
                 {/* Stars */}
-                <div className="flex gap-0.5 mb-3">
-                  {[...Array(review.rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-[var(--gold)] text-[var(--gold)]" />
+                <div className="flex gap-0.5 mb-4">
+                  {[...Array(currentReview.rating)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 fill-[var(--gold)] text-[var(--gold)]" />
                   ))}
                 </div>
 
-                {/* Title */}
-                <h4 className="text-base font-semibold text-[var(--forest)] mb-2">
-                  "{review.title}"
-                </h4>
+                {/* Headline */}
+                <h3 className="text-xl font-bold text-[var(--forest)] mb-3">
+                  "{currentReview.headline}"
+                </h3>
 
-                {/* Review Text */}
-                <p className="text-[var(--forest)]/60 text-sm leading-relaxed mb-4">
-                  {review.text}
+                {/* Text */}
+                <p className="text-[var(--forest)]/70 leading-relaxed mb-6">
+                  {currentReview.text}
                 </p>
 
-                {/* Reviewer */}
-                <div className="flex items-center gap-3 pt-3 border-t border-gray-100">
-                  {/* Avatar with brand gradient */}
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[var(--orange)] to-[var(--gold)] flex items-center justify-center shadow-md">
-                    <span className="text-white font-bold">{review.initial}</span>
+                {/* Author */}
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="font-semibold text-[var(--forest)]">{currentReview.name}</p>
+                    <p className="text-sm text-[var(--forest)]/50">
+                      {currentReview.title} • {currentReview.location}
+                    </p>
                   </div>
-                  <div className="flex-1">
-                    <div className="flex items-center gap-1.5">
-                      <p className="font-medium text-[var(--forest)] text-sm">{review.name}</p>
-                      {review.verified && (
-                        <BadgeCheck className="w-3.5 h-3.5 text-[var(--gold)]" />
-                      )}
-                    </div>
-                    <p className="text-xs text-[var(--forest)]/50">{review.location}</p>
+                  <div className="flex items-center gap-1 text-xs text-green-600 font-medium">
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    Verified Buyer
                   </div>
                 </div>
               </div>
-            </motion.div>
-          ))}
-        </div>
+            </div>
+          </div>
 
-        {/* Trust note */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
-          className="text-center mt-12"
-        >
-          <p className="text-white/60 text-sm flex items-center justify-center gap-2">
-            <BadgeCheck className="w-4 h-4" />
-            All reviews verified by Judge.me
-          </p>
+          {/* Navigation */}
+          <div className="flex items-center justify-center gap-4 mt-8">
+            <button
+              onClick={prevReview}
+              className="w-12 h-12 rounded-full bg-white shadow-md flex items-center justify-center text-[var(--forest)] hover:bg-[var(--forest)] hover:text-white transition-all"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+
+            {/* Dots */}
+            <div className="flex gap-2">
+              {reviews.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setCurrentIndex(i)}
+                  className={`w-2.5 h-2.5 rounded-full transition-all ${
+                    i === currentIndex
+                      ? 'bg-[var(--orange)] w-8'
+                      : 'bg-[var(--forest)]/20 hover:bg-[var(--forest)]/40'
+                  }`}
+                />
+              ))}
+            </div>
+
+            <button
+              onClick={nextReview}
+              className="w-12 h-12 rounded-full bg-white shadow-md flex items-center justify-center text-[var(--forest)] hover:bg-[var(--forest)] hover:text-white transition-all"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </div>
         </motion.div>
+
+        {/* Trust indicators */}
+        <div className="flex flex-wrap items-center justify-center gap-8 mt-12 text-sm text-[var(--forest)]/60">
+          <div className="flex items-center gap-2">
+            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+            </svg>
+            All reviews verified
+          </div>
+          <div className="flex items-center gap-2">
+            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            </svg>
+            Judge.me certified
+          </div>
+          <div className="flex items-center gap-2">
+            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+            </svg>
+            Real customer photos
+          </div>
+        </div>
       </div>
     </section>
   );

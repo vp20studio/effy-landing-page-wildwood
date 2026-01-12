@@ -3,7 +3,7 @@
 // https://effydesk.com/products/electric-adjustable-standing-desk-solid-wood
 
 export const SHOPIFY_DOMAIN = 'https://effydesk.com';
-export const PROMO_CODE = 'NEWYEAR25';
+export const PROMO_CODE = 'REFRESH20';
 
 // All 18 variants: 3 woods × 2 frames × 3 sizes
 // Variant IDs from effydesk.com/products/electric-adjustable-standing-desk-solid-wood.json

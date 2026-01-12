@@ -1,152 +1,110 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, Truck, RotateCcw, Shield, ShieldCheck, CreditCard } from 'lucide-react';
+import Image from 'next/image';
+import { ArrowRight, Truck, RotateCcw, Shield, Check } from 'lucide-react';
+import { getDefaultCartUrl, PROMO_CODE } from '@/lib/shopify';
+
+const benefits = [
+  'Solid hardwood desktop, not veneer',
+  'Whisper-quiet dual motor system',
+  'Programmable height memory',
+  'Anti-collision safety technology',
+  'Cable management included',
+  'Ships fully assembled frame',
+];
 
 export default function FinalCTA() {
   return (
-    <section className="relative py-24 md:py-32 bg-[var(--forest)] overflow-hidden">
-      {/* Subtle gold glow accents */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-bl from-[var(--gold)]/15 to-transparent rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gradient-to-tr from-[var(--orange)]/10 to-transparent rounded-full blur-3xl" />
-
-      <div className="container relative z-10">
-        <div className="max-w-4xl mx-auto">
-          {/* Risk-Free Badge */}
+    <section className="relative py-20 md:py-28 bg-[var(--forest)] overflow-hidden">
+      <div className="container">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left: Image */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="text-center mb-8"
+            className="relative"
           >
-            <span className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 backdrop-blur-sm rounded-full text-white text-sm font-semibold border border-white/20">
-              <ShieldCheck className="w-4 h-4 text-[var(--gold)]" />
-              100% Risk-Free Purchase
-            </span>
-          </motion.div>
-
-          {/* Headline */}
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-serif text-white text-center mb-6 leading-tight"
-          >
-            Try Wildwood
-            <br />
-            <span className="relative">
-              <span className="text-[var(--gold)]">Risk-Free for 30 Days</span>
-              <motion.div
-                className="absolute -bottom-2 left-0 right-0 h-1 bg-[var(--gold)]/30 rounded-full"
-                initial={{ scaleX: 0 }}
-                whileInView={{ scaleX: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.5 }}
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
+              <Image
+                src="https://cdn.shopify.com/s/files/1/0078/8715/9367/files/WalnutBlackWildwoodDesk2.jpg?v=1766187900"
+                alt="Wildwood Standing Desk in home office"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
               />
-            </span>
-          </motion.h2>
-
-          {/* Subheadline */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-xl text-white/70 text-center max-w-2xl mx-auto mb-10"
-          >
-            If the Wildwood doesn't transform your workday, return it for a full refund. We'll even cover the shipping.
-          </motion.p>
-
-          {/* Main Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 30, scale: 0.95 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="relative mb-10"
-          >
-            <div className="bg-white rounded-3xl p-8 md:p-10 shadow-2xl">
-              <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-                {/* Left: Financing Option */}
-                <div className="text-center md:text-left">
-                  <div className="flex items-center justify-center md:justify-start gap-2 mb-3">
-                    <CreditCard className="w-5 h-5 text-[var(--forest)]/60" />
-                    <span className="text-[var(--forest)]/60">Pay in installments</span>
-                  </div>
-                  <div className="flex items-baseline justify-center md:justify-start gap-2 mb-2">
-                    <span className="text-4xl md:text-5xl font-bold text-[var(--forest)]">$263</span>
-                    <span className="text-lg text-[var(--forest)]/60">/payment</span>
-                  </div>
-                  <p className="text-[var(--forest)]/50 text-sm">
-                    4 interest-free payments with Sezzle
-                  </p>
-                </div>
-
-                {/* Right: CTA */}
-                <div className="flex flex-col items-center md:items-end gap-4">
-                  <motion.a
-                    href="#product-picker"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="group relative overflow-hidden bg-[var(--orange)] text-white font-bold text-lg px-10 py-5 rounded-xl shadow-lg hover:shadow-xl transition-all whitespace-nowrap"
-                  >
-                    <span className="relative z-10 flex items-center gap-2">
-                      Configure Your Desk
-                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </span>
-                  </motion.a>
-                  <p className="text-[var(--forest)]/50 text-sm">
-                    Starting at $1,050 CAD
-                  </p>
-                </div>
-              </div>
+            </div>
+            {/* Floating badge */}
+            <div className="absolute -bottom-4 -right-4 md:bottom-6 md:right-6 bg-white rounded-xl p-4 shadow-xl">
+              <p className="text-sm text-[var(--forest)]/60">Starting at</p>
+              <p className="text-3xl font-bold text-[var(--forest)]">$1,050</p>
+              <p className="text-xs text-[var(--orange)] font-medium">Save $300 with code REFRESH20</p>
             </div>
           </motion.div>
 
-          {/* Trust Badges */}
+          {/* Right: Content */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="flex flex-wrap items-center justify-center gap-8 md:gap-12"
+            className="text-white"
           >
-            {[
-              { icon: Truck, label: 'Free Shipping', sublabel: 'Canada & US' },
-              { icon: RotateCcw, label: '30-Day Trial', sublabel: 'Full refund' },
-              { icon: Shield, label: '20-Year Warranty', sublabel: 'Industry leading' },
-            ].map((item, index) => (
-              <motion.div
-                key={item.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.5 + index * 0.1 }}
-                className="flex items-center gap-3 text-white"
-              >
-                <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/20">
-                  <item.icon className="w-5 h-5" />
-                </div>
-                <div>
-                  <p className="font-semibold">{item.label}</p>
-                  <p className="text-sm text-white/60">{item.sublabel}</p>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif mb-4">
+              Ready to Transform<br />
+              <span className="text-[var(--gold)]">Your Workspace?</span>
+            </h2>
 
-          {/* Final Note */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.7 }}
-            className="text-center text-white/50 text-sm mt-10"
-          >
-            Questions? Our support team is available 7 days a week
-          </motion.p>
+            <p className="text-lg text-white/70 mb-8">
+              Join thousands of Canadians who have upgraded to the Wildwood.
+              Try it risk-free for 30 days.
+            </p>
+
+            {/* Benefits checklist */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+              {benefits.map((benefit) => (
+                <div key={benefit} className="flex items-center gap-2">
+                  <div className="w-5 h-5 rounded-full bg-[var(--gold)] flex items-center justify-center flex-shrink-0">
+                    <Check className="w-3 h-3 text-[var(--forest)]" />
+                  </div>
+                  <span className="text-sm text-white/80">{benefit}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* CTA Button */}
+            <div className="flex flex-col sm:flex-row gap-4 mb-8">
+              <a
+                href="#product-picker"
+                className="inline-flex items-center justify-center gap-2 bg-[var(--orange)] hover:bg-[#a84216] text-white font-bold text-lg px-8 py-4 rounded-xl transition-all"
+              >
+                Configure Your Desk
+                <ArrowRight className="w-5 h-5" />
+              </a>
+              <a
+                href={getDefaultCartUrl(PROMO_CODE)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-8 py-4 rounded-xl transition-all border border-white/20"
+              >
+                Quick Buy
+              </a>
+            </div>
+
+            {/* Trust badges */}
+            <div className="flex flex-wrap gap-6">
+              {[
+                { icon: Truck, text: 'Free shipping' },
+                { icon: RotateCcw, text: '30-day trial' },
+                { icon: Shield, text: '20-year warranty' },
+              ].map((item) => (
+                <div key={item.text} className="flex items-center gap-2 text-white/60">
+                  <item.icon className="w-4 h-4" />
+                  <span className="text-sm">{item.text}</span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
