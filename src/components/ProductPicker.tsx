@@ -16,11 +16,38 @@ const variantImages: Record<string, string> = {
   'pheasantwood-white': 'https://cdn.shopify.com/s/files/1/0078/8715/9367/files/PheasentWood_White.jpg?v=1765489975',
 };
 
-// Wood types
+// Wood types with per-size pricing
 const woodTypes = [
-  { id: 'walnut', name: 'Walnut', description: 'Rich chocolate tones with elegant grain' },
-  { id: 'acacia', name: 'Acacia', description: 'Natural blonde with distinctive patterns' },
-  { id: 'pheasantwood', name: 'Pheasant Wood', description: 'Golden amber with red undertones' },
+  {
+    id: 'walnut',
+    name: 'Walnut',
+    description: 'Rich chocolate tones with elegant grain',
+    prices: {
+      S: { price: 960, originalPrice: 1200 },
+      M: { price: 1120, originalPrice: 1400 },
+      L: { price: 1280, originalPrice: 1600 },
+    }
+  },
+  {
+    id: 'acacia',
+    name: 'Acacia',
+    description: 'Natural blonde with distinctive patterns',
+    prices: {
+      S: { price: 740, originalPrice: 925 },
+      M: { price: 1000, originalPrice: 1250 },
+      L: { price: 1160, originalPrice: 1450 },
+    }
+  },
+  {
+    id: 'pheasantwood',
+    name: 'Pheasant Wood',
+    description: 'Golden amber with red undertones',
+    prices: {
+      S: { price: 840, originalPrice: 1050 },
+      M: { price: 1000, originalPrice: 1250 },
+      L: { price: 1160, originalPrice: 1450 },
+    }
+  },
 ];
 
 // Frame colors
@@ -29,11 +56,11 @@ const frameColors = [
   { id: 'white', name: 'White', hex: '#f5f5f5' },
 ];
 
-// Size options with prices from Shopify (after REFRESH20 20% discount)
+// Size options
 const sizes = [
-  { id: 'S', label: '47" × 29"', name: 'Small', price: 1080, originalPrice: 1350 },
-  { id: 'M', label: '59" × 29"', name: 'Medium', price: 1200, originalPrice: 1500 },
-  { id: 'L', label: '71" × 29"', name: 'Large', price: 1320, originalPrice: 1650 },
+  { id: 'S', label: '47" × 29"', name: 'Small' },
+  { id: 'M', label: '59" × 29"', name: 'Medium' },
+  { id: 'L', label: '71" × 29"', name: 'Large' },
 ];
 
 export default function ProductPicker() {
@@ -43,7 +70,12 @@ export default function ProductPicker() {
 
   const variantKey = `${selectedWood.id}-${selectedFrame.id}`;
   const currentImage = variantImages[variantKey];
-  const sezzlePayment = Math.round(selectedSize.price / 4);
+
+  // Get current price based on wood type and size
+  const currentPricing = selectedWood.prices[selectedSize.id as keyof typeof selectedWood.prices];
+  const currentPrice = currentPricing.price;
+  const originalPrice = currentPricing.originalPrice;
+  const sezzlePayment = Math.round(currentPrice / 4);
 
   const getCheckoutUrl = () => {
     return getCartUrl(
@@ -76,7 +108,7 @@ export default function ProductPicker() {
               />
               {/* Sale badge */}
               <div className="absolute top-4 left-4 bg-[var(--orange)] text-white text-sm font-bold px-3 py-1.5 rounded-full">
-                Save ${selectedSize.originalPrice - selectedSize.price}
+                Save ${originalPrice - currentPrice}
               </div>
             </div>
 
@@ -121,10 +153,10 @@ export default function ProductPicker() {
             {/* Price */}
             <div className="flex items-baseline gap-3">
               <span className="text-4xl font-bold text-[var(--forest)]">
-                ${selectedSize.price.toLocaleString()}
+                ${currentPrice.toLocaleString()}
               </span>
               <span className="text-xl text-[var(--forest)]/40 line-through">
-                ${selectedSize.originalPrice.toLocaleString()}
+                ${originalPrice.toLocaleString()}
               </span>
               <span className="text-sm font-medium text-[var(--forest)]/60">CAD</span>
             </div>
@@ -139,19 +171,19 @@ export default function ProductPicker() {
               <label className="block text-sm font-semibold text-[var(--forest)] mb-3">
                 Wood Type: <span className="font-normal text-[var(--forest)]/60">{selectedWood.name}</span>
               </label>
-              <div className="flex gap-3">
+              <div className="flex flex-col sm:flex-row gap-3">
                 {woodTypes.map((wood) => (
                   <button
                     key={wood.id}
                     onClick={() => setSelectedWood(wood)}
-                    className={`flex-1 p-3 rounded-xl border-2 transition-all text-left ${
+                    className={`flex-1 p-4 rounded-xl border-2 transition-all text-left min-h-[56px] ${
                       selectedWood.id === wood.id
                         ? 'border-[var(--orange)] bg-[var(--orange)]/5'
-                        : 'border-gray-200 hover:border-gray-300'
+                        : 'border-gray-200 hover:border-gray-300 active:bg-gray-50'
                     }`}
                   >
                     <span className="block text-sm font-medium text-[var(--forest)]">{wood.name}</span>
-                    <span className="block text-xs text-[var(--forest)]/50 mt-0.5">{wood.description}</span>
+                    <span className="block text-xs text-[var(--forest)]/50 mt-0.5 hidden sm:block">{wood.description}</span>
                   </button>
                 ))}
               </div>
@@ -167,19 +199,19 @@ export default function ProductPicker() {
                   <button
                     key={frame.id}
                     onClick={() => setSelectedFrame(frame)}
-                    className={`flex items-center gap-3 px-4 py-3 rounded-xl border-2 transition-all ${
+                    className={`flex items-center gap-3 px-5 py-4 rounded-xl border-2 transition-all min-h-[56px] ${
                       selectedFrame.id === frame.id
                         ? 'border-[var(--orange)] bg-[var(--orange)]/5'
-                        : 'border-gray-200 hover:border-gray-300'
+                        : 'border-gray-200 hover:border-gray-300 active:bg-gray-50'
                     }`}
                   >
                     <span
-                      className={`w-6 h-6 rounded-full border ${frame.id === 'white' ? 'border-gray-300' : 'border-transparent'}`}
+                      className={`w-7 h-7 rounded-full border ${frame.id === 'white' ? 'border-gray-300' : 'border-transparent'}`}
                       style={{ backgroundColor: frame.hex }}
                     />
                     <span className="text-sm font-medium text-[var(--forest)]">{frame.name}</span>
                     {selectedFrame.id === frame.id && (
-                      <Check className="w-4 h-4 text-[var(--orange)]" />
+                      <Check className="w-5 h-5 text-[var(--orange)]" />
                     )}
                   </button>
                 ))}
@@ -191,22 +223,25 @@ export default function ProductPicker() {
               <label className="block text-sm font-semibold text-[var(--forest)] mb-3">
                 Desktop Size
               </label>
-              <div className="grid grid-cols-3 gap-3">
-                {sizes.map((size) => (
-                  <button
-                    key={size.id}
-                    onClick={() => setSelectedSize(size)}
-                    className={`p-3 rounded-xl border-2 text-center transition-all ${
-                      selectedSize.id === size.id
-                        ? 'border-[var(--orange)] bg-[var(--orange)]/5'
-                        : 'border-gray-200 hover:border-gray-300'
-                    }`}
-                  >
-                    <span className="block text-sm font-bold text-[var(--forest)]">{size.name}</span>
-                    <span className="block text-xs text-[var(--forest)]/50">{size.label}</span>
-                    <span className="block text-sm font-semibold text-[var(--forest)] mt-1">${size.price}</span>
-                  </button>
-                ))}
+              <div className="grid grid-cols-3 gap-2 sm:gap-3">
+                {sizes.map((size) => {
+                  const sizePrice = selectedWood.prices[size.id as keyof typeof selectedWood.prices].price;
+                  return (
+                    <button
+                      key={size.id}
+                      onClick={() => setSelectedSize(size)}
+                      className={`p-3 sm:p-4 rounded-xl border-2 text-center transition-all min-h-[80px] ${
+                        selectedSize.id === size.id
+                          ? 'border-[var(--orange)] bg-[var(--orange)]/5'
+                          : 'border-gray-200 hover:border-gray-300 active:bg-gray-50'
+                      }`}
+                    >
+                      <span className="block text-xs sm:text-sm font-bold text-[var(--forest)]">{size.name}</span>
+                      <span className="block text-[10px] sm:text-xs text-[var(--forest)]/50">{size.label}</span>
+                      <span className="block text-sm sm:text-base font-semibold text-[var(--forest)] mt-1">${sizePrice.toLocaleString()}</span>
+                    </button>
+                  );
+                })}
               </div>
             </div>
 
@@ -215,10 +250,10 @@ export default function ProductPicker() {
               href={getCheckoutUrl()}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-3 w-full bg-[var(--orange)] hover:bg-[#a84216] text-white font-bold text-lg py-4 px-8 rounded-xl transition-all"
+              className="flex items-center justify-center gap-3 w-full bg-[var(--orange)] hover:bg-[#a84216] active:bg-[#8a3512] text-white font-bold text-base sm:text-lg py-5 sm:py-4 px-8 rounded-xl transition-all shadow-lg hover:shadow-xl"
             >
               <ShoppingCart className="w-5 h-5" />
-              <span>Add to Cart</span>
+              <span>Add to Cart - ${currentPrice.toLocaleString()}</span>
               <ArrowRight className="w-5 h-5" />
             </a>
 

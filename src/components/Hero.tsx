@@ -135,13 +135,13 @@ export default function Hero() {
               className="flex items-center justify-center lg:justify-start gap-4 mb-8"
             >
               <span className="text-4xl md:text-5xl font-bold text-[var(--forest)]">
-                $1,080
+                From $740
               </span>
               <span className="text-xl text-[var(--forest)]/40 line-through">
-                $1,350
+                $925
               </span>
               <span className="px-3 py-1 bg-[var(--orange)] text-white text-sm font-bold rounded-full">
-                Save $270
+                Save 20%
               </span>
             </motion.div>
 

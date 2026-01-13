@@ -30,31 +30,28 @@ export default function StickyBar() {
           transition={{ duration: 0.3 }}
           className="fixed bottom-0 left-0 right-0 z-50 md:hidden"
         >
-          <div className="bg-white border-t border-[var(--cream-dark)] shadow-[0_-4px_20px_rgba(0,0,0,0.1)]">
+          <div className="bg-white border-t border-[var(--cream-dark)] shadow-[0_-4px_20px_rgba(0,0,0,0.1)] sticky-bottom">
             <div className="container py-3">
-              <div className="flex items-center justify-between gap-4">
+              <div className="flex items-center justify-between gap-3">
                 {/* Price Info */}
-                <div className="flex items-center gap-2">
-                  <span className="text-sm text-[var(--forest)]/50 line-through">$1,350</span>
-                  <span className="text-xl font-bold text-[var(--forest)]">$1,050</span>
-                  <span className="badge-gold text-xs">Save $300</span>
+                <div className="flex flex-col">
+                  <span className="text-lg font-bold text-[var(--forest)]">From $740</span>
+                  <span className="text-xs text-[var(--orange)] font-medium">Save 20%</span>
                 </div>
 
                 {/* CTA Button */}
                 <a
-                  href={getDefaultCartUrl(PROMO_CODE)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary text-sm px-5 py-2.5 whitespace-nowrap"
+                  href="#product-picker"
+                  className="btn-primary text-sm px-6 py-3 whitespace-nowrap flex-1 max-w-[200px] justify-center"
                 >
-                  Buy Now
+                  Shop Now
                   <ShoppingCart className="w-4 h-4" />
                 </a>
 
                 {/* Dismiss Button */}
                 <button
                   onClick={() => setIsDismissed(true)}
-                  className="p-1.5 text-[var(--forest)]/50 hover:text-[var(--forest)] transition-colors"
+                  className="p-2 text-[var(--forest)]/50 hover:text-[var(--forest)] transition-colors"
                   aria-label="Dismiss"
                 >
                   <X className="w-5 h-5" />

@@ -38,8 +38,8 @@ export default function FinalCTA() {
             {/* Floating badge */}
             <div className="absolute -bottom-4 -right-4 md:bottom-6 md:right-6 bg-white rounded-xl p-4 shadow-xl">
               <p className="text-sm text-[var(--forest)]/60">Starting at</p>
-              <p className="text-3xl font-bold text-[var(--forest)]">$1,080</p>
-              <p className="text-xs text-[var(--orange)] font-medium">Save $270 with code REFRESH20</p>
+              <p className="text-3xl font-bold text-[var(--forest)]">$740</p>
+              <p className="text-xs text-[var(--orange)] font-medium">Save 20% with code REFRESH20</p>
             </div>
           </motion.div>
 

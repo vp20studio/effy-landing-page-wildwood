@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ShoppingCart } from 'lucide-react';
+import Image from 'next/image';
 
 export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -24,10 +25,15 @@ export default function Navigation() {
         <div className="container">
           <nav className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
-            <a href="/" className="flex items-center gap-2">
-              <span className="text-xl md:text-2xl font-serif font-bold text-[var(--forest)]">
-                EFFYDESK
-              </span>
+            <a href="https://effydesk.com" className="flex items-center">
+              <Image
+                src="/effydesk-logo.png"
+                alt="EFFYDESK"
+                width={140}
+                height={40}
+                className="h-8 md:h-10 w-auto"
+                priority
+              />
             </a>
 
             {/* Desktop Navigation */}

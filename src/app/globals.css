@@ -412,3 +412,79 @@ body {
     padding-bottom: 0;
   }
 }
+
+/* =========================================
+   MOBILE OPTIMIZATIONS
+   (For cold Meta traffic on iPhone)
+   ========================================= */
+
+/* Ensure minimum touch targets (44x44px) */
+@media (max-width: 767px) {
+  button,
+  a.btn-primary,
+  a.btn-secondary,
+  [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Improve mobile tap feel */
+  button:active,
+  a:active {
+    transform: scale(0.98);
+  }
+
+  /* Better mobile text sizing */
+  html {
+    font-size: 16px; /* Prevents zoom on input focus */
+  }
+
+  /* Improve scrolling performance */
+  * {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Larger tap targets for navigation */
+  nav a {
+    padding: 12px 8px;
+  }
+
+  /* Better mobile spacing in cards */
+  .card {
+    padding: 16px;
+  }
+
+  /* Ensure images don't cause horizontal scroll */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* Safe area insets for iPhone notch/home indicator */
+@supports (padding: env(safe-area-inset-bottom)) {
+  .sticky-bottom {
+    padding-bottom: calc(12px + env(safe-area-inset-bottom));
+  }
+
+  body {
+    padding-bottom: calc(80px + env(safe-area-inset-bottom));
+  }
+
+  @media (min-width: 768px) {
+    body {
+      padding-bottom: 0;
+    }
+  }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
