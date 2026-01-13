@@ -190,9 +190,9 @@ export default function HowItWorks() {
             <div className="text-center sm:text-left">
               <p className="text-sm text-[var(--forest)]/60">Need assembly help?</p>
               <p className="font-semibold text-[var(--forest)]">
-                Call us 7 days a week or{' '}
-                <a href="#" className="text-[var(--orange)] hover:underline">
-                  watch the video guide
+                Contact us 7 days a week or{' '}
+                <a href="/wildwood-assembly-guide.pdf" target="_blank" rel="noopener noreferrer" className="text-[var(--orange)] hover:underline">
+                  view our installation guide
                 </a>
               </p>
             </div>

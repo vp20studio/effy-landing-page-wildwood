@@ -12,6 +12,7 @@ import FAQ from '@/components/FAQ';
 import FinalCTA from '@/components/FinalCTA';
 import Footer from '@/components/Footer';
 import StickyBar from '@/components/StickyBar';
+import Specifications from '@/components/Specifications';
 
 export default function Home() {
   return (
@@ -35,7 +36,10 @@ export default function Home() {
         {/* Section 4: Benefits - Transformation focus */}
         <Benefits />
 
-        {/* Section 5: Reviews - 8 curated testimonials */}
+        {/* Section 5: Specifications - Technical details */}
+        <Specifications />
+
+        {/* Section 6: Reviews - Testimonials */}
         <section id="reviews">
           <Reviews />
         </section>

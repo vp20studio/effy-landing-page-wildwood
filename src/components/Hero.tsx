@@ -4,22 +4,25 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Truck, Shield, RotateCcw, ChevronUp, ChevronDown, Check } from 'lucide-react';
 
-// Wood color configurations
+// Wood configurations with texture images
 const woodTypes = {
   walnut: {
     name: 'Walnut',
     gradient: 'linear-gradient(90deg, #5D4037 0%, #8B7355 50%, #5D4037 100%)',
     swatch: '#6D4C41',
+    image: 'https://cdn.shopify.com/s/files/1/0078/8715/9367/files/Walnut_Black.jpg?v=1765489975',
   },
   acacia: {
     name: 'Acacia',
     gradient: 'linear-gradient(90deg, #8B6914 0%, #C4A77D 50%, #8B6914 100%)',
     swatch: '#A1887F',
+    image: 'https://cdn.shopify.com/s/files/1/0078/8715/9367/files/Acacia_Black_5882a819-a7af-4b77-8bc2-5042b83c2e02.jpg?v=1765489975',
   },
   pheasant: {
     name: 'Pheasant Wood',
     gradient: 'linear-gradient(90deg, #8D4004 0%, #C9834A 50%, #8D4004 100%)',
     swatch: '#BF6C3B',
+    image: 'https://cdn.shopify.com/s/files/1/0078/8715/9367/files/PheasentWood_Black.jpg?v=1765489975',
   },
 };
 
@@ -132,13 +135,13 @@ export default function Hero() {
               className="flex items-center justify-center lg:justify-start gap-4 mb-8"
             >
               <span className="text-4xl md:text-5xl font-bold text-[var(--forest)]">
-                $1,050
+                $1,080
               </span>
               <span className="text-xl text-[var(--forest)]/40 line-through">
                 $1,350
               </span>
               <span className="px-3 py-1 bg-[var(--orange)] text-white text-sm font-bold rounded-full">
-                Save $300
+                Save $270
               </span>
             </motion.div>
 
@@ -156,9 +159,9 @@ export default function Hero() {
                 <span className="relative z-10">Configure Yours</span>
                 <ArrowRight className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform" />
               </a>
-              <button className="bg-[var(--forest)]/5 border border-[var(--forest)]/20 text-[var(--forest)] font-semibold px-8 py-4 rounded-xl w-full sm:w-auto hover:bg-[var(--forest)]/10 transition-all">
+              <a href="#specifications" className="bg-[var(--forest)]/5 border border-[var(--forest)]/20 text-[var(--forest)] font-semibold px-8 py-4 rounded-xl w-full sm:w-auto hover:bg-[var(--forest)]/10 transition-all text-center">
                 View Specs
-              </button>
+              </a>
             </motion.div>
 
             {/* Trust Badges */}
@@ -327,19 +330,23 @@ export default function Hero() {
                       <button
                         key={key}
                         onClick={() => setSelectedWood(key)}
-                        className={`relative w-12 h-12 rounded-full transition-all ${
+                        className={`relative w-12 h-12 rounded-full overflow-hidden transition-all ${
                           selectedWood === key
                             ? 'ring-2 ring-[var(--orange)] ring-offset-2'
                             : 'hover:scale-105'
                         }`}
-                        style={{ backgroundColor: woodTypes[key].swatch }}
+                        style={{
+                          backgroundImage: `url(${woodTypes[key].image})`,
+                          backgroundSize: 'cover',
+                          backgroundPosition: 'center'
+                        }}
                         title={woodTypes[key].name}
                       >
                         {selectedWood === key && (
                           <motion.div
                             initial={{ scale: 0 }}
                             animate={{ scale: 1 }}
-                            className="absolute inset-0 flex items-center justify-center"
+                            className="absolute inset-0 flex items-center justify-center bg-black/20"
                           >
                             <Check className="w-5 h-5 text-white drop-shadow-md" />
                           </motion.div>

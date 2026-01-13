@@ -29,11 +29,11 @@ const frameColors = [
   { id: 'white', name: 'White', hex: '#f5f5f5' },
 ];
 
-// Size options with prices from Shopify
+// Size options with prices from Shopify (after REFRESH20 20% discount)
 const sizes = [
-  { id: 'S', label: '47" × 29"', name: 'Small', price: 1050, originalPrice: 1350 },
-  { id: 'M', label: '59" × 29"', name: 'Medium', price: 1150, originalPrice: 1450 },
-  { id: 'L', label: '71" × 29"', name: 'Large', price: 1250, originalPrice: 1550 },
+  { id: 'S', label: '47" × 29"', name: 'Small', price: 1080, originalPrice: 1350 },
+  { id: 'M', label: '59" × 29"', name: 'Medium', price: 1200, originalPrice: 1500 },
+  { id: 'L', label: '71" × 29"', name: 'Large', price: 1320, originalPrice: 1650 },
 ];
 
 export default function ProductPicker() {
@@ -80,9 +80,9 @@ export default function ProductPicker() {
               </div>
             </div>
 
-            {/* Thumbnail strip */}
-            <div className="flex gap-2 mt-4">
-              {Object.entries(variantImages).slice(0, 4).map(([key, url]) => (
+            {/* Thumbnail strip - show all 6 variants */}
+            <div className="flex gap-2 mt-4 overflow-x-auto">
+              {Object.entries(variantImages).map(([key, url]) => (
                 <button
                   key={key}
                   onClick={() => {

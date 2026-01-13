@@ -69,7 +69,7 @@ export default function FAQ() {
             Got Questions?
           </motion.span>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-[var(--forest)] mb-6">
-            We\'ve Got{' '}
+            We've Got{' '}
             <span className="relative">
               <span className="text-[var(--orange)]">Answers</span>
               <motion.div
