@@ -99,7 +99,7 @@ export default function Navigation() {
                 <a
                   href="#product-picker"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="btn-primary w-full justify-center"
+                  className="btn-primary w-full justify-center mb-2"
                 >
                   Shop Now
                   <ShoppingCart className="w-4 h-4" />

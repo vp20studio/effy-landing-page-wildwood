@@ -160,8 +160,8 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-white/10">
-        <div className="container py-4">
+      <div className="mt-8 md:mt-12">
+        <div className="container py-6">
           <p className="text-center text-xs text-white/40">
             &copy; {currentYear} EFFYDESK. All rights reserved. &nbsp;·&nbsp;{' '}
             <a href="https://effydesk.com/pages/privacy-policy" target="_blank" rel="noopener noreferrer" className="hover:text-white/70 transition-colors">Privacy Policy</a>
