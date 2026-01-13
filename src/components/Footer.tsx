@@ -160,8 +160,8 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-white/10">
-        <div className="container py-5">
+      <div className="border-t border-white/10 mt-8">
+        <div className="container py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white/50">
             <p>&copy; {currentYear} EFFYDESK. All rights reserved.</p>
             <div className="flex items-center gap-4 md:gap-6">
