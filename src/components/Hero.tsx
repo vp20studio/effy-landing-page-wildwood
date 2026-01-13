@@ -10,19 +10,19 @@ const woodTypes = {
     name: 'Walnut',
     gradient: 'linear-gradient(90deg, #5D4037 0%, #8B7355 50%, #5D4037 100%)',
     swatch: '#6D4C41',
-    image: 'https://cdn.shopify.com/s/files/1/0078/8715/9367/files/Walnut_Black.jpg?v=1765489975',
+    image: 'https://effydesk.com/cdn/shop/files/wildwood-standing-desk-1090966.jpg?v=1765489975&width=1346',
   },
   acacia: {
     name: 'Acacia',
     gradient: 'linear-gradient(90deg, #8B6914 0%, #C4A77D 50%, #8B6914 100%)',
     swatch: '#A1887F',
-    image: 'https://cdn.shopify.com/s/files/1/0078/8715/9367/files/Acacia_Black_5882a819-a7af-4b77-8bc2-5042b83c2e02.jpg?v=1765489975',
+    image: 'https://effydesk.com/cdn/shop/files/wildwood-standing-desk-6103063.jpg?v=1765489975&width=1346',
   },
   pheasant: {
     name: 'Pheasant Wood',
     gradient: 'linear-gradient(90deg, #8D4004 0%, #C9834A 50%, #8D4004 100%)',
     swatch: '#BF6C3B',
-    image: 'https://cdn.shopify.com/s/files/1/0078/8715/9367/files/PheasentWood_Black.jpg?v=1765489975',
+    image: 'https://effydesk.com/cdn/shop/files/wildwood-standing-desk-9900632.jpg?v=1765489975&width=1346',
   },
 };
 
