@@ -75,11 +75,11 @@ export default function Hero() {
       <div className="absolute top-0 right-0 w-[250px] h-[250px] md:w-[400px] md:h-[400px] lg:w-[600px] lg:h-[600px] bg-gradient-to-bl from-[var(--gold)]/5 to-transparent rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 w-[200px] h-[200px] md:w-[300px] md:h-[300px] lg:w-[400px] lg:h-[400px] bg-gradient-to-tr from-[var(--orange)]/5 to-transparent rounded-full blur-3xl" />
 
-      <div className="container relative z-10 py-16 md:py-24">
+      <div className="container relative z-10 pt-8 pb-12 md:py-24">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           {/* Left: Content */}
           <motion.div
-            className="text-center lg:text-left order-2 lg:order-1"
+            className="text-center lg:text-left order-1 lg:order-1"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -101,7 +101,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif mb-6 leading-[1.1]"
+              className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-serif mb-4 md:mb-6 leading-[1.1]"
             >
               <span className="text-[var(--forest)]">The Standing Desk,</span>{' '}
               <span className="relative">
@@ -129,7 +129,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-lg md:text-xl text-[var(--forest)]/70 max-w-xl mx-auto lg:mx-0 mb-8"
+              className="text-base md:text-xl text-[var(--forest)]/70 max-w-xl mx-auto lg:mx-0 mb-6 md:mb-8"
             >
               Handcrafted solid hardwood. Whisper-quiet dual motors.
               The desk that transforms how you work.
@@ -140,9 +140,9 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="flex items-center justify-center lg:justify-start gap-4 mb-8"
+              className="flex items-center justify-center lg:justify-start gap-3 md:gap-4 mb-6 md:mb-8"
             >
-              <span className="text-4xl md:text-5xl font-bold text-[var(--forest)]">
+              <span className="text-3xl md:text-5xl font-bold text-[var(--forest)]">
                 From ${currentPricing.price.toLocaleString()}
               </span>
               <span className="text-xl text-[var(--forest)]/40 line-through">
@@ -194,14 +194,14 @@ export default function Hero() {
 
           {/* Right: Interactive Desk Visualization */}
           <motion.div
-            className="relative order-1 lg:order-2"
+            className="relative order-2 lg:order-2"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
             <div className="relative max-w-lg mx-auto">
               {/* Desk Preview Area */}
-              <div className="relative bg-[var(--cream)]/50 rounded-3xl p-8 pb-16">
+              <div className="relative bg-[var(--cream)]/50 rounded-2xl md:rounded-3xl p-4 pb-14 md:p-8 md:pb-16">
                 {/* Desk Visualization */}
                 <div className="relative h-[200px] md:h-[300px] flex items-end justify-center">
                   <div className="relative">
