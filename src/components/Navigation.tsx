@@ -83,7 +83,7 @@ export default function Navigation() {
             transition={{ duration: 0.2 }}
             className="fixed inset-x-0 top-14 z-40 bg-white shadow-lg md:hidden"
           >
-            <div className="container py-6">
+            <div className="container py-6 pb-8">
               <div className="flex flex-col gap-4">
                 {navLinks.map((link) => (
                   <a
@@ -99,7 +99,7 @@ export default function Navigation() {
                 <a
                   href="#product-picker"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="btn-primary w-full justify-center mb-2"
+                  className="btn-primary w-full justify-center"
                 >
                   Shop Now
                   <ShoppingCart className="w-4 h-4" />
