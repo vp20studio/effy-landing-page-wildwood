@@ -366,7 +366,7 @@ export default function Hero() {
                 </div>
 
                 {/* Frame Color Selector */}
-                <div>
+                <div className="mb-8 md:mb-0">
                   <label className="block text-xs font-semibold text-[var(--forest)]/60 mb-2 text-center">
                     FRAME COLOR
                   </label>
