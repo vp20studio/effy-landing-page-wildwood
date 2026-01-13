@@ -488,3 +488,12 @@ body {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Hide scrollbar but allow scroll */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

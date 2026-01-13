@@ -95,7 +95,7 @@ export default function ProductPicker() {
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="sticky top-24"
+            className="lg:sticky lg:top-24"
           >
             <div className="relative aspect-[4/3] bg-[var(--cream)] rounded-2xl overflow-hidden">
               <Image
@@ -113,7 +113,7 @@ export default function ProductPicker() {
             </div>
 
             {/* Thumbnail strip - show all 6 variants */}
-            <div className="flex gap-2 mt-4 overflow-x-auto">
+            <div className="flex gap-2 mt-4 overflow-x-auto scrollbar-hide">
               {Object.entries(variantImages).map(([key, url]) => (
                 <button
                   key={key}
