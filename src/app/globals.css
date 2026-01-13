@@ -401,18 +401,8 @@ h1, h2, h3, h4 {
 }
 
 /* =========================================
-   STICKY BAR SAFE AREA
+   STICKY BAR SAFE AREA (disabled)
    ========================================= */
-
-body {
-  padding-bottom: 80px;
-}
-
-@media (min-width: 768px) {
-  body {
-    padding-bottom: 0;
-  }
-}
 
 /* =========================================
    MOBILE OPTIMIZATIONS
@@ -466,16 +456,6 @@ body {
 @supports (padding: env(safe-area-inset-bottom)) {
   .sticky-bottom {
     padding-bottom: calc(12px + env(safe-area-inset-bottom));
-  }
-
-  body {
-    padding-bottom: calc(80px + env(safe-area-inset-bottom));
-  }
-
-  @media (min-width: 768px) {
-    body {
-      padding-bottom: 0;
-    }
   }
 }
 
