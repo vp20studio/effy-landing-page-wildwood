@@ -34,8 +34,16 @@ const frameColors = {
 export default function Hero() {
   const [deskHeight, setDeskHeight] = useState(50);
   const [isAnimating, setIsAnimating] = useState(true);
-  const [selectedWood, setSelectedWood] = useState<keyof typeof woodTypes>('walnut');
+  const [selectedWood, setSelectedWood] = useState<keyof typeof woodTypes>('acacia');
   const [selectedFrame, setSelectedFrame] = useState<keyof typeof frameColors>('black');
+
+  // Pricing by wood type (Small size starting prices)
+  const woodPricing = {
+    walnut: { price: 960, originalPrice: 1200 },
+    acacia: { price: 740, originalPrice: 925 },
+    pheasant: { price: 840, originalPrice: 1050 },
+  };
+  const currentPricing = woodPricing[selectedWood];
 
   // Auto-animate desk height on load
   useEffect(() => {
@@ -135,10 +143,10 @@ export default function Hero() {
               className="flex items-center justify-center lg:justify-start gap-4 mb-8"
             >
               <span className="text-4xl md:text-5xl font-bold text-[var(--forest)]">
-                From $740
+                From ${currentPricing.price.toLocaleString()}
               </span>
               <span className="text-xl text-[var(--forest)]/40 line-through">
-                $925
+                ${currentPricing.originalPrice.toLocaleString()}
               </span>
               <span className="px-3 py-1 bg-[var(--orange)] text-white text-sm font-bold rounded-full">
                 Save 20%
@@ -216,34 +224,6 @@ export default function Hero() {
                           style={{ backgroundColor: `color-mix(in srgb, ${wood.swatch} 80%, black)` }}
                         />
 
-                        {/* Wireless Charging Area */}
-                        <div className="absolute -top-[28px] right-[50px]">
-                          {/* Charging spot glow */}
-                          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-                            <motion.div
-                              className="absolute -inset-4 rounded-full bg-[var(--gold)]/15"
-                              animate={{ scale: [1, 1.4, 1], opacity: [0.2, 0.05, 0.2] }}
-                              transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-                            />
-                            <motion.div
-                              className="absolute -inset-2 rounded-full bg-[var(--gold)]/25"
-                              animate={{ scale: [1, 1.3, 1], opacity: [0.3, 0.1, 0.3] }}
-                              transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: 0.4 }}
-                            />
-                          </div>
-
-                          {/* Phone silhouette */}
-                          <div className="relative w-[14px] h-[24px] bg-[var(--forest)]/70 rounded-[3px] shadow-sm">
-                            {/* Screen */}
-                            <div className="absolute inset-[1px] rounded-[2px] bg-[var(--forest)]/40" />
-                            {/* Charging indicator */}
-                            <motion.div
-                              className="absolute bottom-[2px] left-1/2 -translate-x-1/2 w-[4px] h-[4px] rounded-full bg-[var(--gold)]"
-                              animate={{ opacity: [0.4, 1, 0.4] }}
-                              transition={{ duration: 1.5, repeat: Infinity }}
-                            />
-                          </div>
-                        </div>
                       </div>
                     </motion.div>
 
@@ -310,7 +290,7 @@ export default function Hero() {
                     {wood.name} + {frame.name} Frame
                   </p>
                   <p className="text-sm text-[var(--forest)]/50">
-                    {actualHeight.toFixed(0)}" height • Built-in wireless charging
+                    {actualHeight.toFixed(0)}" height
                   </p>
                 </div>
 

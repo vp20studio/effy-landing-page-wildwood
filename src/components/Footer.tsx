@@ -160,15 +160,14 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-white/10 mt-8">
-        <div className="container py-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white/50">
-            <p>&copy; {currentYear} EFFYDESK. All rights reserved.</p>
-            <div className="flex items-center gap-4 md:gap-6">
-              <a href="https://effydesk.com/pages/privacy-policy" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Privacy Policy</a>
-              <a href="https://effydesk.com/pages/terms-and-conditions" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Terms of Service</a>
-            </div>
-          </div>
+      <div className="border-t border-white/10">
+        <div className="container py-4">
+          <p className="text-center text-xs text-white/40">
+            &copy; {currentYear} EFFYDESK. All rights reserved. &nbsp;·&nbsp;{' '}
+            <a href="https://effydesk.com/pages/privacy-policy" target="_blank" rel="noopener noreferrer" className="hover:text-white/70 transition-colors">Privacy Policy</a>
+            {' '}&nbsp;·&nbsp;{' '}
+            <a href="https://effydesk.com/pages/terms-and-conditions" target="_blank" rel="noopener noreferrer" className="hover:text-white/70 transition-colors">Terms of Service</a>
+          </p>
         </div>
       </div>
     </footer>

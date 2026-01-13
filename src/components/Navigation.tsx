@@ -9,7 +9,7 @@ export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navLinks = [
-    { label: 'Features', href: '#features' },
+    { label: 'Features', href: '#product-picker' },
     { label: 'Reviews', href: '#reviews' },
     { label: 'FAQ', href: '#faq' },
   ];

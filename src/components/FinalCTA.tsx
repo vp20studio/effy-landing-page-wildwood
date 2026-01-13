@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { ArrowRight, Truck, RotateCcw, Shield, Check } from 'lucide-react';
-import { getDefaultCartUrl, PROMO_CODE } from '@/lib/shopify';
+import { getCartUrl, PROMO_CODE } from '@/lib/shopify';
 
 const benefits = [
   'Solid hardwood desktop, not veneer',
@@ -82,12 +82,12 @@ export default function FinalCTA() {
                 <ArrowRight className="w-5 h-5" />
               </a>
               <a
-                href={getDefaultCartUrl(PROMO_CODE)}
+                href={getCartUrl('Acacia', 'Black', 'S', PROMO_CODE)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-8 py-4 rounded-xl transition-all border border-white/20"
               >
-                Quick Buy
+                Quick Buy - $740
               </a>
             </div>
 
