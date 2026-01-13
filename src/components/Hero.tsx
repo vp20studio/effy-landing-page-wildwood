@@ -16,13 +16,13 @@ const woodTypes = {
     name: 'Acacia',
     gradient: 'linear-gradient(90deg, #8B6914 0%, #C4A77D 50%, #8B6914 100%)',
     swatch: '#A1887F',
-    image: 'https://effydesk.com/cdn/shop/files/wildwood-standing-desk-6103063.jpg?v=1765489975&width=1346',
+    image: 'https://effydesk.com/cdn/shop/files/wildwood-standing-desk-9900632.jpg?v=1765489975&width=1346',
   },
   pheasant: {
     name: 'Pheasant Wood',
     gradient: 'linear-gradient(90deg, #8D4004 0%, #C9834A 50%, #8D4004 100%)',
     swatch: '#BF6C3B',
-    image: 'https://effydesk.com/cdn/shop/files/wildwood-standing-desk-9900632.jpg?v=1765489975&width=1346',
+    image: 'https://effydesk.com/cdn/shop/files/wildwood-standing-desk-6103063.jpg?v=1765489975&width=1346',
   },
 };
 

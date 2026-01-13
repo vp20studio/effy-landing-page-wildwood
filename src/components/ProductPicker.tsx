@@ -33,7 +33,7 @@ const woodTypes = [
     id: 'acacia',
     name: 'Acacia',
     description: 'Natural blonde with distinctive patterns',
-    swatch: 'https://effydesk.com/cdn/shop/files/wildwood-standing-desk-6103063.jpg?v=1765489975&width=1346',
+    swatch: 'https://effydesk.com/cdn/shop/files/wildwood-standing-desk-9900632.jpg?v=1765489975&width=1346',
     prices: {
       S: { price: 740, originalPrice: 925 },
       M: { price: 1000, originalPrice: 1250 },
@@ -44,7 +44,7 @@ const woodTypes = [
     id: 'pheasantwood',
     name: 'Pheasant Wood',
     description: 'Golden amber with red undertones',
-    swatch: 'https://effydesk.com/cdn/shop/files/wildwood-standing-desk-9900632.jpg?v=1765489975&width=1346',
+    swatch: 'https://effydesk.com/cdn/shop/files/wildwood-standing-desk-6103063.jpg?v=1765489975&width=1346',
     prices: {
       S: { price: 840, originalPrice: 1050 },
       M: { price: 1000, originalPrice: 1250 },
