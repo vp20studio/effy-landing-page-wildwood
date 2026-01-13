@@ -171,18 +171,19 @@ export default function ProductPicker() {
               <label className="block text-sm font-semibold text-[var(--forest)] mb-3">
                 Wood Type: <span className="font-normal text-[var(--forest)]/60">{selectedWood.name}</span>
               </label>
-              <div className="grid grid-cols-1 gap-2">
+              <div className="flex flex-col sm:flex-row gap-3">
                 {woodTypes.map((wood) => (
                   <button
                     key={wood.id}
                     onClick={() => setSelectedWood(wood)}
-                    className={`w-full p-3 rounded-xl border-2 transition-all text-left ${
+                    className={`flex-1 p-4 rounded-xl border-2 transition-all text-left min-h-[56px] ${
                       selectedWood.id === wood.id
                         ? 'border-[var(--orange)] bg-[var(--orange)]/5'
                         : 'border-gray-200 hover:border-gray-300 active:bg-gray-50'
                     }`}
                   >
-                    <span className="text-sm font-medium text-[var(--forest)]">{wood.name}</span>
+                    <span className="block text-sm font-medium text-[var(--forest)]">{wood.name}</span>
+                    <span className="block text-xs text-[var(--forest)]/50 mt-0.5 hidden sm:block">{wood.description}</span>
                   </button>
                 ))}
               </div>
