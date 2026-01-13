@@ -22,6 +22,7 @@ const woodTypes = [
     id: 'walnut',
     name: 'Walnut',
     description: 'Rich chocolate tones with elegant grain',
+    swatch: 'https://effydesk.com/cdn/shop/files/wildwood-standing-desk-1090966.jpg?v=1765489975&width=200',
     prices: {
       S: { price: 960, originalPrice: 1200 },
       M: { price: 1120, originalPrice: 1400 },
@@ -32,6 +33,7 @@ const woodTypes = [
     id: 'acacia',
     name: 'Acacia',
     description: 'Natural blonde with distinctive patterns',
+    swatch: 'https://effydesk.com/cdn/shop/files/wildwood-standing-desk-6103063.jpg?v=1765489975&width=200',
     prices: {
       S: { price: 740, originalPrice: 925 },
       M: { price: 1000, originalPrice: 1250 },
@@ -42,6 +44,7 @@ const woodTypes = [
     id: 'pheasantwood',
     name: 'Pheasant Wood',
     description: 'Golden amber with red undertones',
+    swatch: 'https://effydesk.com/cdn/shop/files/wildwood-standing-desk-9900632.jpg?v=1765489975&width=200',
     prices: {
       S: { price: 840, originalPrice: 1050 },
       M: { price: 1000, originalPrice: 1250 },
@@ -162,7 +165,7 @@ export default function ProductPicker() {
             </div>
 
             {/* Sezzle */}
-            <p className="text-sm text-[var(--forest)]/60 pb-4 border-b border-gray-100">
+            <p className="text-sm text-[var(--forest)]/60 pb-4 mb-2 border-b border-gray-100">
               or 4 interest-free payments of <span className="font-semibold text-[var(--forest)]">${sezzlePayment}</span> with Sezzle
             </p>
 
@@ -171,19 +174,30 @@ export default function ProductPicker() {
               <label className="block text-sm font-semibold text-[var(--forest)] mb-3">
                 Wood Type: <span className="font-normal text-[var(--forest)]/60">{selectedWood.name}</span>
               </label>
-              <div className="flex flex-col sm:flex-row gap-3">
+              <div className="flex gap-3">
                 {woodTypes.map((wood) => (
                   <button
                     key={wood.id}
                     onClick={() => setSelectedWood(wood)}
-                    className={`flex-1 p-4 rounded-xl border-2 transition-all text-left min-h-[56px] ${
+                    className={`relative w-14 h-14 rounded-full overflow-hidden transition-all ${
                       selectedWood.id === wood.id
-                        ? 'border-[var(--orange)] bg-[var(--orange)]/5'
-                        : 'border-gray-200 hover:border-gray-300 active:bg-gray-50'
+                        ? 'ring-2 ring-[var(--orange)] ring-offset-2'
+                        : 'hover:scale-105'
                     }`}
+                    title={wood.name}
                   >
-                    <span className="block text-sm font-medium text-[var(--forest)]">{wood.name}</span>
-                    <span className="block text-xs text-[var(--forest)]/50 mt-0.5 hidden sm:block">{wood.description}</span>
+                    <Image
+                      src={wood.swatch}
+                      alt={wood.name}
+                      fill
+                      className="object-cover"
+                      sizes="56px"
+                    />
+                    {selectedWood.id === wood.id && (
+                      <div className="absolute inset-0 flex items-center justify-center bg-black/20">
+                        <Check className="w-5 h-5 text-white drop-shadow-md" />
+                      </div>
+                    )}
                   </button>
                 ))}
               </div>
