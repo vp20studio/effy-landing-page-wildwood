@@ -87,8 +87,8 @@ export default function ProductPicker() {
   };
 
   return (
-    <section id="product-picker" className="relative py-16 md:py-24 bg-white">
-      <div className="container">
+    <section id="product-picker" className="relative py-12 md:py-24 bg-white overflow-hidden">
+      <div className="container px-4 md:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
           {/* Left: Product Image */}
           <motion.div
@@ -113,7 +113,7 @@ export default function ProductPicker() {
             </div>
 
             {/* Thumbnail strip - show all 6 variants */}
-            <div className="flex gap-2 mt-4 overflow-x-auto scrollbar-hide">
+            <div className="flex gap-1.5 mt-3 overflow-x-auto scrollbar-hide pb-1">
               {Object.entries(variantImages).map(([key, url]) => (
                 <button
                   key={key}
@@ -122,11 +122,11 @@ export default function ProductPicker() {
                     setSelectedWood(woodTypes.find(w => w.id === wood) || woodTypes[0]);
                     setSelectedFrame(frameColors.find(f => f.id === frame) || frameColors[0]);
                   }}
-                  className={`relative w-16 h-16 rounded-lg overflow-hidden border-2 transition-all ${
+                  className={`relative w-12 h-12 flex-shrink-0 rounded-md overflow-hidden border-2 transition-all ${
                     variantKey === key ? 'border-[var(--orange)]' : 'border-transparent hover:border-gray-300'
                   }`}
                 >
-                  <Image src={url} alt="" fill className="object-cover" sizes="64px" />
+                  <Image src={url} alt="" fill className="object-cover" sizes="48px" />
                 </button>
               ))}
             </div>
@@ -137,28 +137,28 @@ export default function ProductPicker() {
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="space-y-6"
+            className="space-y-4"
           >
             {/* Title */}
             <div>
-              <p className="text-sm text-[var(--orange)] font-medium mb-1">EFFYDESK</p>
-              <h1 className="text-3xl md:text-4xl font-serif text-[var(--forest)] mb-2">
+              <p className="text-xs text-[var(--orange)] font-medium mb-1">EFFYDESK</p>
+              <h1 className="text-2xl md:text-4xl font-serif text-[var(--forest)] mb-1">
                 Wildwood Standing Desk
               </h1>
-              <p className="text-[var(--forest)]/60">
+              <p className="text-sm text-[var(--forest)]/60">
                 Solid {selectedWood.name} • {selectedFrame.name} Frame • {selectedSize.label}
               </p>
             </div>
 
             {/* Price */}
-            <div className="flex items-baseline gap-3">
-              <span className="text-4xl font-bold text-[var(--forest)]">
+            <div className="flex items-baseline gap-2 flex-wrap">
+              <span className="text-3xl font-bold text-[var(--forest)]">
                 ${currentPrice.toLocaleString()}
               </span>
-              <span className="text-xl text-[var(--forest)]/40 line-through">
+              <span className="text-lg text-[var(--forest)]/40 line-through">
                 ${originalPrice.toLocaleString()}
               </span>
-              <span className="text-sm font-medium text-[var(--forest)]/60">CAD</span>
+              <span className="text-xs font-medium text-[var(--forest)]/60">CAD</span>
             </div>
 
             {/* Sezzle */}
@@ -171,19 +171,18 @@ export default function ProductPicker() {
               <label className="block text-sm font-semibold text-[var(--forest)] mb-3">
                 Wood Type: <span className="font-normal text-[var(--forest)]/60">{selectedWood.name}</span>
               </label>
-              <div className="flex flex-col sm:flex-row gap-3">
+              <div className="grid grid-cols-1 gap-2">
                 {woodTypes.map((wood) => (
                   <button
                     key={wood.id}
                     onClick={() => setSelectedWood(wood)}
-                    className={`flex-1 p-4 rounded-xl border-2 transition-all text-left min-h-[56px] ${
+                    className={`w-full p-3 rounded-xl border-2 transition-all text-left ${
                       selectedWood.id === wood.id
                         ? 'border-[var(--orange)] bg-[var(--orange)]/5'
                         : 'border-gray-200 hover:border-gray-300 active:bg-gray-50'
                     }`}
                   >
-                    <span className="block text-sm font-medium text-[var(--forest)]">{wood.name}</span>
-                    <span className="block text-xs text-[var(--forest)]/50 mt-0.5 hidden sm:block">{wood.description}</span>
+                    <span className="text-sm font-medium text-[var(--forest)]">{wood.name}</span>
                   </button>
                 ))}
               </div>
@@ -194,24 +193,24 @@ export default function ProductPicker() {
               <label className="block text-sm font-semibold text-[var(--forest)] mb-3">
                 Frame Color: <span className="font-normal text-[var(--forest)]/60">{selectedFrame.name}</span>
               </label>
-              <div className="flex gap-3">
+              <div className="grid grid-cols-2 gap-2">
                 {frameColors.map((frame) => (
                   <button
                     key={frame.id}
                     onClick={() => setSelectedFrame(frame)}
-                    className={`flex items-center gap-3 px-5 py-4 rounded-xl border-2 transition-all min-h-[56px] ${
+                    className={`flex items-center justify-center gap-2 px-4 py-3 rounded-xl border-2 transition-all ${
                       selectedFrame.id === frame.id
                         ? 'border-[var(--orange)] bg-[var(--orange)]/5'
                         : 'border-gray-200 hover:border-gray-300 active:bg-gray-50'
                     }`}
                   >
                     <span
-                      className={`w-7 h-7 rounded-full border ${frame.id === 'white' ? 'border-gray-300' : 'border-transparent'}`}
+                      className={`w-6 h-6 rounded-full border ${frame.id === 'white' ? 'border-gray-300' : 'border-transparent'}`}
                       style={{ backgroundColor: frame.hex }}
                     />
                     <span className="text-sm font-medium text-[var(--forest)]">{frame.name}</span>
                     {selectedFrame.id === frame.id && (
-                      <Check className="w-5 h-5 text-[var(--orange)]" />
+                      <Check className="w-4 h-4 text-[var(--orange)]" />
                     )}
                   </button>
                 ))}
@@ -223,22 +222,22 @@ export default function ProductPicker() {
               <label className="block text-sm font-semibold text-[var(--forest)] mb-3">
                 Desktop Size
               </label>
-              <div className="grid grid-cols-3 gap-2 sm:gap-3">
+              <div className="grid grid-cols-3 gap-1.5">
                 {sizes.map((size) => {
                   const sizePrice = selectedWood.prices[size.id as keyof typeof selectedWood.prices].price;
                   return (
                     <button
                       key={size.id}
                       onClick={() => setSelectedSize(size)}
-                      className={`p-3 sm:p-4 rounded-xl border-2 text-center transition-all min-h-[80px] ${
+                      className={`p-2 rounded-lg border-2 text-center transition-all ${
                         selectedSize.id === size.id
                           ? 'border-[var(--orange)] bg-[var(--orange)]/5'
                           : 'border-gray-200 hover:border-gray-300 active:bg-gray-50'
                       }`}
                     >
-                      <span className="block text-xs sm:text-sm font-bold text-[var(--forest)]">{size.name}</span>
-                      <span className="block text-[10px] sm:text-xs text-[var(--forest)]/50">{size.label}</span>
-                      <span className="block text-sm sm:text-base font-semibold text-[var(--forest)] mt-1">${sizePrice.toLocaleString()}</span>
+                      <span className="block text-xs font-bold text-[var(--forest)]">{size.name}</span>
+                      <span className="block text-[9px] text-[var(--forest)]/50 leading-tight">{size.label}</span>
+                      <span className="block text-sm font-semibold text-[var(--forest)] mt-0.5">${sizePrice.toLocaleString()}</span>
                     </button>
                   );
                 })}
@@ -250,11 +249,11 @@ export default function ProductPicker() {
               href={getCheckoutUrl()}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-3 w-full bg-[var(--orange)] hover:bg-[#a84216] active:bg-[#8a3512] text-white font-bold text-base sm:text-lg py-5 sm:py-4 px-8 rounded-xl transition-all shadow-lg hover:shadow-xl"
+              className="flex items-center justify-center gap-2 w-full bg-[var(--orange)] hover:bg-[#a84216] active:bg-[#8a3512] text-white font-bold text-sm py-4 px-4 rounded-xl transition-all shadow-lg hover:shadow-xl"
             >
-              <ShoppingCart className="w-5 h-5" />
+              <ShoppingCart className="w-4 h-4" />
               <span>Add to Cart - ${currentPrice.toLocaleString()}</span>
-              <ArrowRight className="w-5 h-5" />
+              <ArrowRight className="w-4 h-4" />
             </a>
 
             {/* Trust Badges */}

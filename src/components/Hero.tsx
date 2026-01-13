@@ -70,7 +70,7 @@ export default function Hero() {
   const frame = frameColors[selectedFrame];
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-b from-[var(--cream)] via-white to-white">
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-b from-[var(--cream)] via-white to-white pt-14 md:pt-20">
       {/* Subtle background accent */}
       <div className="absolute top-0 right-0 w-[250px] h-[250px] md:w-[400px] md:h-[400px] lg:w-[600px] lg:h-[600px] bg-gradient-to-bl from-[var(--gold)]/5 to-transparent rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 w-[200px] h-[200px] md:w-[300px] md:h-[300px] lg:w-[400px] lg:h-[400px] bg-gradient-to-tr from-[var(--orange)]/5 to-transparent rounded-full blur-3xl" />

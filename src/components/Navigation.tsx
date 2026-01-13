@@ -20,18 +20,18 @@ export default function Navigation() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
-        className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm"
+        className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100"
       >
         <div className="container">
-          <nav className="flex items-center justify-between h-16 md:h-20">
+          <nav className="flex items-center justify-between h-14 md:h-20">
             {/* Logo */}
             <a href="https://effydesk.com" className="flex items-center">
               <Image
                 src="/effydesk-logo.png"
                 alt="EFFYDESK"
-                width={140}
-                height={40}
-                className="h-8 md:h-10 w-auto"
+                width={120}
+                height={32}
+                className="h-6 md:h-10 w-auto"
                 priority
               />
             </a>
@@ -81,7 +81,7 @@ export default function Navigation() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-x-0 top-16 z-40 bg-white shadow-lg md:hidden"
+            className="fixed inset-x-0 top-14 z-40 bg-white shadow-lg md:hidden"
           >
             <div className="container py-6">
               <div className="flex flex-col gap-4">
