@@ -13,7 +13,7 @@ const reviews = [
     rating: 5,
     headline: 'My back pain disappeared after 3 weeks',
     text: 'I was skeptical that a desk could make such a difference, but the Wildwood has completely changed my workday. The sit-stand transitions are so smooth and quiet that I actually use them. After years of chronic lower back pain, I finally feel comfortable working for hours.',
-    image: 'https://cdn.shopify.com/s/files/1/0078/8715/9367/files/WalnutBlackWildwoodDesk1.jpg?v=1766187900',
+    image: '/review-1.avif',
   },
   {
     id: 2,
@@ -23,7 +23,7 @@ const reviews = [
     rating: 5,
     headline: 'The quietest desk motor I have ever used',
     text: 'I take video calls all day and was worried about motor noise. This thing is whisper quiet - my colleagues cannot even tell when I am adjusting it mid-meeting. The walnut top gets compliments on every call. It is furniture-grade quality.',
-    image: 'https://cdn.shopify.com/s/files/1/0078/8715/9367/files/Walnut_Black.jpg?v=1765489975',
+    image: '/review-2.avif',
   },
   {
     id: 3,
@@ -33,7 +33,7 @@ const reviews = [
     rating: 5,
     headline: 'Worth every penny for the 20-year warranty alone',
     text: 'I compared a dozen standing desks before choosing the Wildwood. No one else offers a 20-year warranty - that tells you everything about quality. Assembly took 25 minutes. The solid wood top and steel frame feel like they will last forever.',
-    image: 'https://cdn.shopify.com/s/files/1/0078/8715/9367/files/PheasentWood_Black.jpg?v=1765489975',
+    image: '/review-3.avif',
   },
 ];
 
