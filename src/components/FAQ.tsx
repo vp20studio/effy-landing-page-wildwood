@@ -6,36 +6,36 @@ import { Plus, Minus, HelpCircle, MessageCircle } from 'lucide-react';
 
 const faqs = [
   {
-    question: 'Why is the Wildwood more expensive than competitors?',
-    answer: 'Unlike most standing desks that use particleboard, MDF, or laminate, the Wildwood features a solid hardwood desktop (Walnut, Acacia, or Pheasant Wood). This means better durability, a premium look that gets compliments, and a desk that actually feels like furniture—not office equipment. Combined with our dual-motor system and 20-year warranty, you\'re investing in a desk that will outlast 3-4 budget alternatives.',
+    question: 'How do I use the wireless charging feature on my solid wood table top?',
+    answer: 'You can use this feature by placing your phone or tablet directly on top of the wireless charging area indicated by the two L shaped markings on the left-hand side of the desk. The device must be wireless charging compatible and centred on the marked area to activate charging. Sliding/dragging the device onto the indicated area will not activate the wireless charging. We recommend you remove any magnets, wallet cases, pop sockets and similar items before using the wireless charging on your solid wood table top. These items can prevent the wireless charging function on your solid wood table top.',
   },
   {
-    question: 'Is assembly really that easy? What if I need help?',
-    answer: 'Yes—most customers finish assembly in 30-45 minutes. Everything you need is included: tools, hardware, and a step-by-step guide with QR codes linking to video tutorials. If you get stuck, our support team is available 7 days a week via chat, email, or phone. We also offer White Glove Installation ($149) where our technicians deliver, assemble, and set up your desk for you.',
+    question: 'Why is my phone warm after using the wireless charging feature on my solid wood table top?',
+    answer: 'It is normal for your phone or tablet to get warm from wireless charging. The use of a case and the thickness of the case can contribute to the increased temperature of your device. Remove the case from your device to reduce the heat generated from wireless charging.',
   },
   {
-    question: 'What if I don\'t like it after it arrives?',
-    answer: 'No problem. We offer a 30-day satisfaction guarantee. If the Wildwood doesn\'t meet your expectations for any reason, contact us within 30 days for a full refund. We\'ll even cover the return shipping. Most returns are due to incorrect size orders—so measure your space carefully!',
+    question: 'How do I care for my solid wood table top?',
+    answer: 'We recommend keeping your table top dry and using coasters when drinking liquids on or near your desk. Repeated exposure to puddles can distort the surface of the solid wood top. To keep your solid wood table top looking its best, we recommend avoiding PVC, rubber, or vinyl desk pads/mats. These materials can sometimes react with natural wood finishes and leave marks or discolouration. For best results, choose felt, fabric, or leather desk pads that are safe for wood surfaces.',
   },
   {
-    question: 'How does the 20-year warranty actually work?',
-    answer: 'Our 20-year warranty covers the frame, motors, and all electronics against manufacturing defects. If anything fails during normal use, we\'ll replace the parts free of charge, including shipping. The solid wood desktop is covered for 5 years against warping or defects. No receipts to save—we track everything by your order number.',
+    question: 'Is a showroom available to view the product?',
+    answer: 'Yes, our showroom is available for viewing. Please email team@effydesk.ca or call us at 604-715-7577 to set up an appointment!',
   },
   {
-    question: 'Will this fit in my small apartment or office?',
-    answer: 'Probably! Our small size (47" × 29") fits most spaces while still accommodating dual monitors. We recommend at least 6" clearance on each side for comfortable movement. The desk adjusts from 23" to 50" in height, so it works whether you\'re 5\'2" or 6\'5". Tip: Use painter\'s tape to mark the dimensions on your floor before ordering.',
+    question: 'How long does it take to assemble a desk?',
+    answer: 'Moderate assembly is required for the desk and we provide assembly instructions with each desk frame. We recommend assembling the desk with a friend. The assembly process usually takes around 30-45 minutes from start to finish.',
   },
   {
-    question: 'How does the wireless charging work?',
-    answer: 'A Qi-compatible wireless charging pad is built into the desktop surface (marked by a subtle icon). Just place your phone on the spot—no cables needed. Works with all iPhones 8+ and most Android phones. It\'s integrated flush with the surface, so it doesn\'t interrupt your workflow or create clutter.',
+    question: 'Can I use my own desktop?',
+    answer: 'You are able to use any desktop you prefer as long as the table is drill-able. Please keep the desktop size between 44" to 80" in width and 27-36" in depth for maximum stability. Keep overhang between 2-5 inches.',
   },
   {
-    question: 'How long does shipping take?',
-    answer: 'Most orders ship within 2-3 business days and arrive within 5-7 business days anywhere in Canada or the continental US. Shipping is always free for standing desks. You\'ll receive tracking information via email once your order ships. Expedited shipping is available at checkout for an additional fee.',
+    question: 'Where will my order ship from?',
+    answer: 'We ship our products from Vancouver, BC. If you are in the greater lower mainland, we have a local driver and any orders outside of the lower mainland, we will deliver via CANPAR.',
   },
   {
-    question: 'Do you offer financing or payment plans?',
-    answer: 'Yes! We partner with Sezzle to offer interest-free payments. Split your purchase into 4 equal payments over 6 weeks with no credit check and no hidden fees. For example, the Medium desk at $1,150 becomes just $287.50 every 2 weeks. Select Sezzle at checkout to get started.',
+    question: 'Is there a way to reset my desk?',
+    answer: 'To reset, unplug and plug the desk for 15 minutes. Then press the Down button and hold for 10-15 seconds until the table stutters and beeps.',
   },
 ];
 
