@@ -167,8 +167,8 @@ export default function FAQ() {
             <div className="text-center sm:text-left">
               <p className="text-sm text-[var(--forest)]/60 mb-1">Still have questions?</p>
               <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
-                <a href="mailto:support@effydesk.com" className="text-[var(--orange)] font-semibold hover:underline">
-                  support@effydesk.com
+                <a href="mailto:team@effydesk.com" className="text-[var(--orange)] font-semibold hover:underline">
+                  team@effydesk.com
                 </a>
                 <span className="hidden sm:inline text-[var(--forest)]/30">|</span>
                 <span className="text-[var(--forest)]/60 text-sm">
