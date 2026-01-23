@@ -24,9 +24,9 @@ const woodTypes = [
     description: 'Rich chocolate tones with elegant grain',
     swatch: 'https://effydesk.com/cdn/shop/files/wildwood-standing-desk-1090966.jpg?v=1765489975&width=1346',
     prices: {
-      S: { price: 960, originalPrice: 1200 },
-      M: { price: 1120, originalPrice: 1400 },
-      L: { price: 1280, originalPrice: 1600 },
+      S: { price: 1080, originalPrice: 1200 },
+      M: { price: 1260, originalPrice: 1400 },
+      L: { price: 1440, originalPrice: 1600 },
     }
   },
   {
@@ -35,9 +35,9 @@ const woodTypes = [
     description: 'Natural blonde with distinctive patterns',
     swatch: 'https://effydesk.com/cdn/shop/files/wildwood-standing-desk-9900632.jpg?v=1765489975&width=1346',
     prices: {
-      S: { price: 740, originalPrice: 925 },
-      M: { price: 1000, originalPrice: 1250 },
-      L: { price: 1160, originalPrice: 1450 },
+      S: { price: 833, originalPrice: 925 },
+      M: { price: 1125, originalPrice: 1250 },
+      L: { price: 1305, originalPrice: 1450 },
     }
   },
   {
@@ -46,9 +46,9 @@ const woodTypes = [
     description: 'Golden amber with red undertones',
     swatch: 'https://effydesk.com/cdn/shop/files/wildwood-standing-desk-6103063.jpg?v=1765489975&width=1346',
     prices: {
-      S: { price: 840, originalPrice: 1050 },
-      M: { price: 1000, originalPrice: 1250 },
-      L: { price: 1160, originalPrice: 1450 },
+      S: { price: 945, originalPrice: 1050 },
+      M: { price: 1125, originalPrice: 1250 },
+      L: { price: 1305, originalPrice: 1450 },
     }
   },
 ];

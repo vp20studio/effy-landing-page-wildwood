@@ -39,9 +39,9 @@ export default function Hero() {
 
   // Pricing by wood type (Small size starting prices)
   const woodPricing = {
-    walnut: { price: 960, originalPrice: 1200 },
-    acacia: { price: 740, originalPrice: 925 },
-    pheasant: { price: 840, originalPrice: 1050 },
+    walnut: { price: 1080, originalPrice: 1200 },
+    acacia: { price: 833, originalPrice: 925 },
+    pheasant: { price: 945, originalPrice: 1050 },
   };
   const currentPricing = woodPricing[selectedWood];
 
@@ -149,7 +149,7 @@ export default function Hero() {
                 ${currentPricing.originalPrice.toLocaleString()}
               </span>
               <span className="px-3 py-1 bg-[var(--orange)] text-white text-sm font-bold rounded-full">
-                Save 20%
+                Save 10%
               </span>
             </motion.div>
 

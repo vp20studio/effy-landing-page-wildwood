@@ -35,8 +35,8 @@ export default function StickyBar() {
               <div className="flex items-center justify-between gap-3">
                 {/* Price Info */}
                 <div className="flex flex-col">
-                  <span className="text-lg font-bold text-[var(--forest)]">From $740</span>
-                  <span className="text-xs text-[var(--orange)] font-medium">Save 20%</span>
+                  <span className="text-lg font-bold text-[var(--forest)]">From $833</span>
+                  <span className="text-xs text-[var(--orange)] font-medium">Save 10%</span>
                 </div>
 
                 {/* CTA Button */}

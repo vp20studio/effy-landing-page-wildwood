@@ -213,7 +213,7 @@ export const productMeta = {
   currentPrice: 1299,
   savings: 300,
   promoCode: 'NEWYEAR25',
-  promoDiscount: '20%',
+  promoDiscount: '10%',
 } as const;
 
 // What's Included - Bundle Items

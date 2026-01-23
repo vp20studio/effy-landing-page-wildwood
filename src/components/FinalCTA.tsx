@@ -38,8 +38,8 @@ export default function FinalCTA() {
             {/* Floating badge */}
             <div className="absolute -bottom-4 -right-4 md:bottom-6 md:right-6 bg-white rounded-xl p-4 shadow-xl">
               <p className="text-sm text-[var(--forest)]/60">Starting at</p>
-              <p className="text-3xl font-bold text-[var(--forest)]">$740</p>
-              <p className="text-xs text-[var(--orange)] font-medium">Save 20% with code REFRESH20</p>
+              <p className="text-3xl font-bold text-[var(--forest)]">$833</p>
+              <p className="text-xs text-[var(--orange)] font-medium">Save 10% with code EFFY10</p>
             </div>
           </motion.div>
 
@@ -87,7 +87,7 @@ export default function FinalCTA() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-8 py-4 rounded-xl transition-all border border-white/20"
               >
-                Quick Buy - $740
+                Quick Buy - $833
               </a>
             </div>
 
