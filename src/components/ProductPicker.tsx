@@ -35,7 +35,7 @@ const woodTypes = [
     description: 'Natural blonde with distinctive patterns',
     swatch: 'https://effydesk.com/cdn/shop/files/wildwood-standing-desk-9900632.jpg?v=1765489975&width=1346',
     prices: {
-      S: { price: 833, originalPrice: 925 },
+      S: { price: 830, originalPrice: 925 },
       M: { price: 1125, originalPrice: 1250 },
       L: { price: 1305, originalPrice: 1450 },
     }

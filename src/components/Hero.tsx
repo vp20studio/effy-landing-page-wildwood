@@ -40,7 +40,7 @@ export default function Hero() {
   // Pricing by wood type (Small size starting prices)
   const woodPricing = {
     walnut: { price: 1080, originalPrice: 1200 },
-    acacia: { price: 833, originalPrice: 925 },
+    acacia: { price: 830, originalPrice: 925 },
     pheasant: { price: 945, originalPrice: 1050 },
   };
   const currentPricing = woodPricing[selectedWood];
