@@ -92,7 +92,7 @@ export default function Hero() {
             >
               <span className="inline-flex items-center gap-2 px-4 py-2 bg-[var(--forest)] rounded-full text-white text-sm font-medium mb-6">
                 <span className="w-2 h-2 rounded-full bg-[var(--gold)] animate-pulse" />
-                New Collection 2025
+                New Collection 2026
               </span>
             </motion.div>
 
